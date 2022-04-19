@@ -1,0 +1,56 @@
+/* You can add global styles to this file, and also import other style files */
+
+$myapp-grisOscuro: #524949;
+$myapp-verdeOscuro: #378455;
+$myapp-verdeBrillante: #C8FF79;
+$myapp-verdeClaro: #E2F6EF;
+$myapp-naranja: #F5B264;
+$myapp-salmon: #E07873;
+
+$myapp-font: 'Asap Condensed', sans-serif;
+
+
+html, body { height: 100%; }
+
+h1{
+    font-family: $myapp-font;
+    font-weight: bold;
+    font-size: 34;
+    letter-spacing: 2%;
+}
+
+h2{
+    font-family: $myapp-font;
+    font-weight: bold;
+    font-size: 20;
+    letter-spacing: 4%;
+}
+
+h3{
+    font-family: $myapp-font;
+    font-weight: bold;
+    font-size: 15;
+    letter-spacing: 4%;
+}
+
+p{
+    font-family: $myapp-font;
+    font-size: 13;
+    letter-spacing: 10%;
+}
+
+link{
+    font-family: $myapp-font;
+    font-size: 14;
+    letter-spacing: 10%;
+}
+
+button{
+    font-family: $myapp-font;
+    font-weight: bold;
+    font-size: 14;
+    letter-spacing: 8%;
+    border-radius: 20px;
+    color: white;
+    background-color: $myapp-salmon;
+}
