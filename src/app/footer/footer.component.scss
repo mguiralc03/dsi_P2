@@ -12,6 +12,9 @@ footer{
                 max-width: 220px;
                 max-height: 50px;
             }
+            img:hover{
+                cursor: pointer;
+            }
         }
         .footer-app{
             .footer-app-imagenes{
@@ -23,6 +26,9 @@ footer{
                     width: 140px;
                     margin: 10px;
                     border-radius: 10px;
+                }
+                img:hover{
+                    cursor: pointer;
                 }
             }
             text-align: center;
@@ -45,6 +51,9 @@ footer{
                 margin-top: 10px;
                 padding-left: 90px;
                 box-sizing: border-box;
+            }
+            a:hover{
+                cursor: pointer;
             }
         }
         width: 100%;

@@ -3,9 +3,6 @@
 header{
     width: 100%;
     background-color: $myapp-verdeClaro;
-    top: 0;
-    left: 0;
-    position: absolute;
     display: flex;
     justify-content: space-between;
 
@@ -34,5 +31,43 @@ header{
         align-items: center;
         gap: 5%;
         margin-right: 15px;
+    }
+}
+
+
+.pop-up{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 350px;
+    width: 400px;
+    box-shadow: 0 0 10px black;
+    border-radius: 15px;
+    background-color: white;
+    z-index: 9999;
+    padding: 10px;
+    .header-popup{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        .material-icons-outlined{
+            font-size: 32px;
+        }
+        .material-icons-outlined:hover{
+            cursor: pointer;
+        }
+        img{
+            height: 30px;
+            width: 160px;
+            margin-left: 100px;
+            margin-top: 5px;
+        }
+    }
+    #login{
+                
+    }
+    #register{
+
     }
 }

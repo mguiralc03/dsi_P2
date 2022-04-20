@@ -1,13 +1,38 @@
 <header>
-    <div role="button" tabindex="0" id="logo-container">
+    <div role="button" tabindex="0" id="logo-container" (keydown)="moveTo($event)" (click)="changePath()">
         <img id="header-logo" src="../../assets/images/logo.png" alt="myHealth logo">
     </div>
     <div id="not-logged">
-        <button mat-raised-button id="iniciar-sesion" color="salmon">Iniciar sesión</button>
-        <button mat-raised-button id="registro" color="salmon">Registrarse</button>
+        <button mat-raised-button id="iniciar-sesion" color="salmon" (click)="openInit()" >Iniciar sesión</button>
+        <button mat-raised-button id="registro" color="salmon" (click)="openReg()">Registrarse</button>
     </div>
     <div id="logged">
         <button mat-raised-button id="carrito-compra" color="salmon"><span class="material-icons-outlined">shopping_cart</span></button>
         <button mat-raised-button id="mi-cuenta" color="salmon">Mi cuenta</button>
     </div>
 </header>
+ 
+
+<div *ngIf="showLogin" id="login" class="pop-up">
+    <div class="header-popup">
+        <img src="../../assets/images/logo.png" alt="myHealth logo">
+        <span class="material-icons-outlined" (click)="closeInit()">highlight_off</span>
+    </div>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput type="text" placeholder="pat@example.com" [formControl]="email" required>
+        <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+    </mat-form-field>
+
+        
+</div>
+<div *ngIf="showReg" id="registro" class="pop-up">
+    <div class="header-popup">
+        <img src="../../assets/images/logo.png" alt="myHealth logo">
+        <span class="material-icons-outlined" (click)="closeReg()">highlight_off</span>
+    </div>
+    <form>
+
+    </form>
+</div>
