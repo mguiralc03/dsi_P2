@@ -9,6 +9,7 @@ $myapp-salmon: #E07873;
 
 $myapp-font: 'Asap Condensed', sans-serif;
 
+* {margin: 0;}
 
 html, body { height: 100%; }
 
@@ -39,18 +40,25 @@ p{
     letter-spacing: 10%;
 }
 
-link{
+a{
     font-family: $myapp-font;
     font-size: 14;
     letter-spacing: 10%;
+    text-decoration: underline;
 }
 
-button{
+.mat-raised-button.mat-salmon{
     font-family: $myapp-font;
     font-weight: bold;
-    font-size: 14;
+    font-size: 14px;
+    line-height: 22px;
     letter-spacing: 8%;
     border-radius: 20px;
     color: white;
     background-color: $myapp-salmon;
+}
+
+.mat-raised-button.mat-salmon:hover{
+    color: $myapp-salmon;
+    background-color: white;
 }

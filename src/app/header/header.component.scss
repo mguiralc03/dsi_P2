@@ -1,0 +1,38 @@
+@import "../../styles.scss";
+
+header{
+    width: 100%;
+    background-color: $myapp-verdeClaro;
+    top: 0;
+    left: 0;
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+
+    #logo-container{
+        width: 40%;
+        margin: 15px 0px 10px 15px;
+    }
+
+    #header-logo{
+        width: 100%;
+        max-width: 220px;
+        max-height: 50px;
+    }
+
+    #not-logged{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 5%;
+        margin-right: 15px;
+    }
+
+    #logged{
+        display: none;
+        justify-content: center;
+        align-items: center;
+        gap: 5%;
+        margin-right: 15px;
+    }
+}

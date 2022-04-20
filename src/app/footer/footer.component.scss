@@ -1,0 +1,60 @@
+@import "../../styles.scss";
+footer{
+    .elements-footer{
+        .footer-logo{
+            width: 30%;
+            filter: brightness(500%);
+            margin: 10px 0px 10px 15px;
+            display: flex;
+            align-items: center;
+            img{
+                width: 100%;
+                max-width: 220px;
+                max-height: 50px;
+            }
+        }
+        .footer-app{
+            .footer-app-imagenes{
+                justify-content: center;
+                display: inline-flex;
+                img{
+                    all:unset;
+                    height: 41px;
+                    width: 140px;
+                    margin: 10px;
+                    border-radius: 10px;
+                }
+            }
+            text-align: center;
+            margin-top: 5px;
+            letter-spacing: 2px;
+            display: flex;
+            flex-direction: column;
+            width: 40%;
+            justify-content: center;
+    
+        }
+        .footer-links{
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            width: 30%;
+            justify-content: center;
+            letter-spacing: 2px;
+            a{
+                margin-top: 10px;
+                padding-left: 90px;
+                box-sizing: border-box;
+            }
+        }
+        width: 100%;
+        display: inline-flex;
+        padding: 10px 0px;
+    }
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    background-color: $myapp-verdeOscuro;
+    color: white;
+}
+
