@@ -18,14 +18,23 @@
         <img src="../../assets/images/logo.png" alt="myHealth logo">
         <span class="material-icons-outlined" (click)="closeInit()">highlight_off</span>
     </div>
-
-    <mat-form-field appearance="fill">
-        <mat-label>Email</mat-label>
-        <input matInput type="text" placeholder="pat@example.com" [formControl]="email" required>
-        <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
-    </mat-form-field>
-
-        
+    <form>
+        <mat-form-field appearance="fill" id="login-email">
+            <mat-label>Email</mat-label>
+            <input matInput type="text" placeholder="pat@example.com" [formControl]="email" required>
+            <mat-error *ngIf="email.invalid">{{getErrorMessageEmail()}}</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Introduce tu contraseña</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+          </mat-form-field>
+          <button mat-raised-button color="salmon" (click)="closeInit()" type="submit">Iniciar sesión</button>
+          <a (click)="openReg()">¿No tienes cuenta? Regístrate</a>
+    </form>
+       
 </div>
 <div *ngIf="showReg" id="registro" class="pop-up">
     <div class="header-popup">

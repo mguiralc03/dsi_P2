@@ -67,3 +67,37 @@ footer{
     color: white;
 }
 
+@media (max-width: 1300px){
+    footer{
+        .elements-footer{
+            .footer-app{
+                width: 30%;
+            }
+            .footer-logo{
+                width: 40%;
+            }
+            .footer-links{
+                width: 40%;
+            }
+        }
+    }
+}
+
+
+
+@media (max-width: 800px){
+    footer{
+        .elements-footer{
+            .footer-app{
+                display:none;
+            }
+            .footer-logo{
+                width: 30%;
+            }
+            .footer-links{
+                width: 70%;
+            }
+        }
+    }
+}
+

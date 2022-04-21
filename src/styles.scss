@@ -47,28 +47,39 @@ a{
     text-decoration: underline;
 }
 
-.mat-raised-button.mat-salmon{
-    font-family: $myapp-font;
-    font-weight: bold;
-    font-size: 14px;
-    line-height: 22px;
-    letter-spacing: 8%;
-    border-radius: 20px;
-    color: white;
-    background-color: $myapp-salmon;
-    box-shadow: none;
+:Host ::ng-deep {
+    .mat-raised-button.mat-salmon{
+        font-family: $myapp-font;
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 22px;
+        letter-spacing: 8%;
+        border-radius: 20px;
+        color: white;
+        background-color: $myapp-salmon;
+        box-shadow: none;
+    }
+    
+    .mat-raised-button.mat-salmon:hover{
+        color: $myapp-salmon;
+        background-color: white;
+        box-shadow: 0 0 8px $myapp-salmon;
+    }
 }
 
-.mat-raised-button.mat-salmon:hover{
-    color: $myapp-salmon;
-    background-color: white;
-}
 
-.mat-form-field-flex.ng-tns-c66-0{
-    background-color: hsla(85, 100%, 74%, 0.49);
-}
+:Host ::ng-deep {
 
-.mat-form-field{
-    color: #524949;
-}
+    .mat-form-field-wrapper{
+        width: 200px;
+    }
+    .mat-form-field-flex{
+        background-color: hsla(85, 100%, 74%, 0.49);
+    }
+    .mat-form-field{  
+        color: #524949;
+    }
+
+} 
+
 

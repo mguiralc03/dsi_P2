@@ -9,6 +9,8 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   public email:any = new FormControl('', [Validators.required, Validators.email]);
+  public contraseña: any = new FormData;
+  public hide = true
   public showLogin: boolean = false;
   public showReg: boolean = false;
 
@@ -17,7 +19,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  getErrorMessage(){
+  getErrorMessageEmail(){
     if (this.email.hasError('required')) {
       return 'Tiene que introducir su correo';
     }
@@ -40,10 +42,14 @@ export class HeaderComponent implements OnInit {
   public openInit() {
     this.showLogin = true;
     this.showReg = false;
+    this.email.reset('', {emitEvent: false});
+    this.contraseña.reset();
   }
 
   public closeInit() {
     this.showLogin = false;
+    this.email.reset('', {emitEvent: false});
+    this.contraseña.reset();
   }
 
   public openReg(){

@@ -37,6 +37,8 @@ header{
 
 .pop-up{
     position: absolute;
+    display: flex;
+    flex-direction: column;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -51,6 +53,7 @@ header{
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        height: 15%;
         .material-icons-outlined{
             font-size: 32px;
         }
@@ -64,10 +67,34 @@ header{
             margin-top: 5px;
         }
     }
-    #login{
-                
+    form{
+        height: 85%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 40px;
+        .mat-raised-button.mat-salmon{
+            padding-top: 3px;
+            padding-bottom: 3px;
+            margin-top: 5px;
+        }
+        a{
+            margin-top: 10px;
+            color: $myapp-naranja;
+            font-weight: bolder;
+        }
+        a:hover{
+            cursor: pointer;
+        }
     }
-    #register{
+}
 
+#login{
+    height: 300px;
+    width: 300px;
+    .header-popup{
+        img{
+            margin-left: 60px;
+        }
     }
 }
