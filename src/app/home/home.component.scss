@@ -3,6 +3,8 @@
 nav{
     background-color: $myapp-verdeOscuro;
     display: flex;
+    align-items: center;
+    width: 100%;
     justify-content: space-between;
 
     .links{
@@ -32,7 +34,6 @@ nav{
     letter-spacing: 8%;
     color: white;
     margin: 10px 15px 10px 0px;
-    float: right;
 }
 
 ::ng-deep .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
@@ -55,14 +56,18 @@ nav{
     /*replace with your color*/
 }
 
+.search_tool{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .search_form{
     text-align: center;
-    left:300px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin: 10px auto;
     flex-direction: column;
     display: flex;
-    position: absolute;
     width: 620px;
     height:70px;
     background: #E2F6EF;
@@ -93,7 +98,6 @@ nav{
     justify-content: center;
     margin: auto;
     flex-direction: column;
-    position: absolute;
     height: 22px;
     width: 126px;
     border-radius: 20px;
@@ -107,18 +111,6 @@ nav{
     background-color:#C8FF79;
   }
 
-  #farmacia{
-    left: 40px;
-  }
-
-  #parafarmacia{
-    left: 240px;
-  }
-
-  #ortopedia{
-    left: 440px;
-  }
-
   .search-bar{
     margin-bottom: 10px;
     margin: auto;
@@ -126,28 +118,12 @@ nav{
   .chooser_cointainer{
     text-align: center;
     justify-content: center;
-    margin: auto;
-    flex-direction: column;
-    position: absolute;
-    margin-bottom:15px;
+    display: flex;
   }
   input[type="checkbox"]{
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
     opacity: 0;
     border-radius: 15px;
     cursor: pointer;
-  }
-  .chooser input[type=checkbox]:checked{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 15px;
-    cursor: pointer;
-    background-color: #C8FF79;
   }
