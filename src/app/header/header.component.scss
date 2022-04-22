@@ -34,6 +34,17 @@ header{
     }
 }
 
+.blurback{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9998;
+    backdrop-filter: blur(2px);
+    background-color: rgba(195, 247, 198, 0.332);
+}
+
 
 .pop-up{
     position: absolute;
@@ -53,7 +64,7 @@ header{
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        height: 2%;
+        height: 10%;
         .material-icons-outlined{
             font-size: 32px;
         }
@@ -69,10 +80,14 @@ header{
     }
     form{
         height: 98%;
+        width: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding-top: 40px;
+        padding-top: 20px;
+        h2{
+            margin-bottom: 30px;
+        }
         .mat-raised-button.mat-salmon{
             padding-top: 3px;
             padding-bottom: 3px;
@@ -90,11 +105,27 @@ header{
 }
 
 #login{
-    height: 300px;
+    height: 350px;
     width: 320px;
     .header-popup{
         img{
             margin-left: 60px;
         }
     }
+}
+
+#reg{
+    width: 480px;
+    .filaReg{
+        width: 90%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .header-popup{
+        img{
+            margin-left: 150px;
+        }
+    }
+
 }

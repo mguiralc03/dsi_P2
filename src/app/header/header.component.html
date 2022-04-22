@@ -11,38 +11,64 @@
         <button mat-raised-button id="mi-cuenta" color="salmon">Mi cuenta</button>
     </div>
 </header>
- 
+ <div *ngIf="showBack" class="blurback"></div>
 
 <div *ngIf="showLogin" id="login" class="pop-up">
     <div class="header-popup">
         <img src="../../assets/images/logo.png" alt="myHealth logo">
-        <span class="material-icons-outlined" (click)="closeInit()">highlight_off</span>
+        <span tabIndex="0" class="material-icons-outlined" (click)="closeInit()">highlight_off</span>
     </div>
     <form>
         <h2>Inicia sesión</h2>
         <mat-form-field appearance="fill" id="login-email">
             <mat-label>Email</mat-label>
-            <input matInput type="text" placeholder="pat@example.com" [formControl]="email" required>
-            <mat-error *ngIf="email.invalid">{{getErrorMessageEmail()}}</mat-error>
+            <input matInput type="text" placeholder="pat@example.com" [formControl]="emailInit" required>
+            <mat-error *ngIf="emailInit.invalid">{{getErrorMessageEmailInit()}}</mat-error>
         </mat-form-field>
         <mat-form-field appearance="fill">
             <mat-label>Introduce tu contraseña</mat-label>
             <input matInput [type]="hide ? 'password' : 'text'">
-            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
               <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
             </button>
-          </mat-form-field>
-          <button mat-raised-button color="salmon" (click)="closeInit()" type="submit">Iniciar sesión</button>
-          <a (click)="openReg()">¿No tienes cuenta? Regístrate</a>
+        </mat-form-field>
+        <button mat-raised-button color="salmon" (click)="closeInit()" type="submit">Iniciar sesión</button>
+        <a (click)="openReg()">¿No tienes cuenta? Regístrate</a>
     </form>
        
 </div>
-<div *ngIf="showReg" id="registro" class="pop-up">
+<div *ngIf="showReg" id="reg" class="pop-up">
     <div class="header-popup">
         <img src="../../assets/images/logo.png" alt="myHealth logo">
-        <span class="material-icons-outlined" (click)="closeReg()">highlight_off</span>
+        <span tabIndex="0" class="material-icons-outlined" (click)="closeReg()">highlight_off</span>
     </div>
     <form>
-
+        <h2>Regístrate</h2>
+        <div class="filaReg">
+            <mat-form-field appearance="fill">
+                <mat-label>Nombre</mat-label>
+                <input matInput>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Apellidos</mat-label>
+                <input matInput>
+            </mat-form-field>
+        </div>
+        <div class="filaReg">
+            <mat-form-field appearance="fill" id="login-email">
+                <mat-label>Email</mat-label>
+                <input matInput type="text" placeholder="pat@example.com" [formControl]="emailReg" required>
+                <mat-error *ngIf="emailReg.invalid">{{getErrorMessageEmailReg()}}</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Introduce tu contraseña</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'">
+                <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                  <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+            </mat-form-field>
+        </div>
+        <button mat-raised-button color="salmon" (click)="closeReg()" type="submit">Registrarme</button>
+        <a (click)="openInit()">Ya tengo cuenta</a>
     </form>
 </div>

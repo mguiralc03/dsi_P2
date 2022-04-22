@@ -8,22 +8,30 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  public email:any = new FormControl('', [Validators.required, Validators.email]);
-  public contraseña: any = new FormData;
+  public emailInit:any = new FormControl('', [Validators.required, Validators.email]);
+  public emailReg:any = new FormControl('', [Validators.required, Validators.email]);
   public hide = true
   public showLogin: boolean = false;
   public showReg: boolean = false;
+  public showBack: boolean = false;
 
   constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
 
-  getErrorMessageEmail(){
-    if (this.email.hasError('required')) {
+  getErrorMessageEmailInit(){
+    if (this.emailInit.hasError('required')) {
       return 'Tiene que introducir su correo';
     }
-    return this.email.hasError('email') ? 'Email no válido': '';
+    return this.emailInit.hasError('email') ? 'Email no válido': '';
+  }
+
+  getErrorMessageEmailReg(){
+    if (this.emailReg.hasError('required')) {
+      return 'Tiene que introducir su correo';
+    }
+    return this.emailReg.hasError('email') ? 'Email no válido': '';
   }
 
   public changePath(){
@@ -41,24 +49,28 @@ export class HeaderComponent implements OnInit {
 
   public openInit() {
     this.showLogin = true;
+    this.showBack = true;
     this.showReg = false;
-    this.email.reset('', {emitEvent: false});
-    this.contraseña.reset();
+    this.emailInit.reset('', {emitEvent: false});
   }
 
   public closeInit() {
     this.showLogin = false;
-    this.email.reset('', {emitEvent: false});
-    this.contraseña.reset();
+    this.showBack = false;
+    this.emailInit.reset('', {emitEvent: false});
   }
 
   public openReg(){
     this.showReg =  true;
+    this.showBack = true;
     this.showLogin = false;
+    this.emailReg.reset('', {emitEvent: false});
   }
 
   public closeReg() {
     this.showReg = false;
+    this.showBack = false;
+    this.emailReg.reset('', {emitEvent: false});
   }
 
 }

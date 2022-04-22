@@ -18,6 +18,7 @@ import { UserComponent } from './user/user.component';
 import { RecordatoriosComponent } from './recordatorios/recordatorios.component';
 import { FavoritosComponent } from './favoritos/favoritos.component';
 import { MisPedidosComponent } from './mis-pedidos/mis-pedidos.component';
+import { MedicamentosService } from './medicamentos.service'
 
 
 @NgModule({
@@ -43,7 +44,7 @@ import { MisPedidosComponent } from './mis-pedidos/mis-pedidos.component';
     MatInputModule,
     MatIconModule
   ],
-  providers: [],
+  providers: [MedicamentosService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
