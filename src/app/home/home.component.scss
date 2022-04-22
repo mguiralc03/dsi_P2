@@ -1,5 +1,9 @@
 @import "../../styles.scss";
 
+#home-container {
+    min-height: calc(100vh - 56px - 127px);
+}
+
 nav{
     background-color: $myapp-verdeOscuro;
     display: flex;
@@ -64,19 +68,13 @@ nav{
     margin: 10px auto;
     flex-direction: column;
     display: flex;
-    width: 670px;
-    height:70px;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
     background: #E2F6EF;
     border-radius: 20px;
 }
-.search_text{
-    margin-top: 15px;
-    width: 80%;
-    height: 24px;
-    background: rgba(250, 250, 250, 0.71);
-    border: 1px solid rgba(0, 0, 0, 0.8);
-    border-radius: 12px;
-}
+
 .search_button{
     margin-left:5px;
     background: #E2F6EF;
@@ -102,28 +100,45 @@ nav{
     box-sizing: border-box;
     border-radius: 20px;
     cursor: pointer;
+    display: flex;
   }
 .chooser:hover{
-background-color:#C8FF79;
+    background-color:#C8FF79;
 }
 
-.search-bar{
-margin-bottom: 10px;
-margin: auto;
+.search_bar{
+    margin: 10px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    width: 90%;
+
+    .search_text {
+        width: 95%;
+        height: 24px;
+        background: rgba(250, 250, 250, 0.71);
+        border: 1px solid rgba(0, 0, 0, 0.8);
+        border-radius: 12px;
+    }
+    button {
+        width: 5%;
+    }
 }
-.chooser_cointainer{
-display: flex;
-flex-direction: row;
-text-align: center;
-justify-content: center;
+.chooser_container{
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+    width: 80%;
+    margin-bottom: 10px;
 
 }
 input[type="checkbox"]{
-width: 100%;
-height: 100%;
-opacity: 0;
-border-radius: 15px;
-cursor: pointer;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    border-radius: 15px;
+    cursor: pointer;
 }
 input[type=checkbox]:checked ~ div{
     width: 100%;
@@ -181,7 +196,7 @@ input[type=checkbox]:checked ~ div{
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        width: 20%;
+        width: 300px;
         max-height: 370px;
         background-color:#c7ff799f;
         padding: 20px;

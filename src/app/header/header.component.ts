@@ -60,6 +60,19 @@ export class HeaderComponent implements OnInit {
     this.emailInit.reset('', {emitEvent: false});
   }
 
+  public closeInitTab(event: KeyboardEvent){
+    if (event.key === 'Enter'){
+      this.showLogin = false;
+      this.showBack = false;
+      this.emailInit.reset('', {emitEvent: false});
+    }
+    if (event.keyCode === 32){
+      this.showLogin = false;
+      this.showBack = false;
+      this.emailInit.reset('', {emitEvent: false});
+    }
+  }
+
   public openReg(){
     this.showReg =  true;
     this.showBack = true;
@@ -71,6 +84,19 @@ export class HeaderComponent implements OnInit {
     this.showReg = false;
     this.showBack = false;
     this.emailReg.reset('', {emitEvent: false});
+  }
+
+  public closeRegTab(event: KeyboardEvent){
+    if (event.key === 'Enter'){
+      this.showReg = false;
+      this.showBack = false;
+      this.emailReg.reset('', {emitEvent: false});
+    }
+    if (event.keyCode === 32){
+      this.showReg = false;
+      this.showBack = false;
+      this.emailReg.reset('', {emitEvent: false});
+    }
   }
 
 }

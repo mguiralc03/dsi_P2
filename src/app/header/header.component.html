@@ -7,6 +7,7 @@
         <button mat-raised-button id="registro" color="salmon" (click)="openReg()">Registrarse</button>
     </div>
     <div id="logged">
+        <h2>¡Hola de nuevo María del Carmen!</h2>
         <button mat-raised-button id="carrito-compra" color="salmon"><span class="material-icons-outlined">shopping_cart</span></button>
         <button mat-raised-button id="mi-cuenta" color="salmon">Mi cuenta</button>
     </div>
@@ -16,7 +17,7 @@
 <div *ngIf="showLogin" id="login" class="pop-up">
     <div class="header-popup">
         <img src="../../assets/images/logo.png" alt="myHealth logo">
-        <span tabIndex="0" class="material-icons-outlined" (click)="closeInit()">highlight_off</span>
+        <span tabIndex="0" class="material-icons-outlined" (keydown)="closeInitTab($event)" (click)="closeInit()">highlight_off</span>
     </div>
     <form>
         <h2>Inicia sesión</h2>
@@ -68,7 +69,7 @@
                 </button>
             </mat-form-field>
         </div>
-        <button mat-raised-button color="salmon" (click)="closeReg()" type="submit">Registrarme</button>
+        <button mat-raised-button color="salmon" (keydown)="closeRegTab($event)" (click)="closeReg()" type="submit">Registrarme</button>
         <a (click)="openInit()">Ya tengo cuenta</a>
     </form>
 </div>
