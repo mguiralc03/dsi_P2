@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Medicamento, MedicamentosService} from '../medicamentos.service';
-import * as $ from 'jquery';
 import  { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
 
@@ -41,6 +40,20 @@ export class HomeComponent implements OnInit {
         
       }
     }
+  }
+
+  public search(filtro: string){
+    const filtroaplicado = document.getElementById(filtro) as HTMLDivElement;
+    filtroaplicado.style.backgroundColor = "#C8FF79";
+  }
+
+  public cerrarSesion() {
+    const links = document.getElementById("logged-home") as HTMLDivElement;
+    links.style.display = "none";
+    const logged = document.getElementById("logged") as HTMLDivElement;
+    const notLogged = document.getElementById("not-logged") as HTMLDivElement;
+    logged.style.display = "none";
+    notLogged.style.display = "flex";
   }
 
 }

@@ -93,6 +93,10 @@ header{
             padding-bottom: 3px;
             margin-top: 5px;
         }
+        p{
+            color: $myapp-salmon;
+            display: none;
+        }
         a{
             margin-top: 10px;
             color: $myapp-naranja;
@@ -105,7 +109,7 @@ header{
 }
 
 #login{
-    height: 350px;
+    height: 360px;
     width: 320px;
     .header-popup{
         img{

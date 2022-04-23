@@ -1,4 +1,9 @@
 @import "../../styles.scss";
+
+#recordatorios-container {
+    min-height: calc(100vh - 56px - 127px);
+}
+
 nav{
     background-color: $myapp-verdeOscuro;
     display: flex;
@@ -12,7 +17,7 @@ nav{
         gap: 10%;
         margin-left: 15px;
         color: white;
-        width: 50%;
+        width: 60%;
         align-items: center;
 
         h2 {
@@ -23,7 +28,69 @@ nav{
         h2:hover{
             color: $myapp-naranja;
         }
+
+        .active{
+            color: $myapp-naranja;
+        }
     }
+}
+
+h1{
+    width: 100%;
+    margin: 20px auto;
+    text-align: center;
+}
+
+full-calendar{
+    width: 80%;
+    height: 700px;
+    margin: 10px auto;
+    background-color: #c7ff799b;
+    border-radius: 5px;
+}
+
+::ng-deep .fc .fc-header-toolbar {
+    margin: 10px 20px;
+}
+
+::ng-deep .fc .fc-toolbar-title{
+    font-family: $myapp-font;
+    font-weight: bold;
+    font-size: 20;
+    letter-spacing: 4%;
+}
+
+:Host ::ng-deep .fc .fc-daygrid-day.fc-day-today{
+    background-color: var(--fc-today-bg-color, #e0787387);
+}
+
+:Host ::ng-deep .fc .fc-timegrid-col.fc-day-today {
+    background-color: var(--fc-today-bg-color, #e0787389);
+}
+
+:Host ::ng-deep .fc .fc-button.fc-button-primary {
+    font-family: $myapp-font;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: 8%;
+    color: white;
+    border: none;
+    background-color: $myapp-salmon;
+    box-shadow: none;
+}
+
+:Host ::ng-deep .fc .fc-view-harness{
+    width: 95%;
+    margin: 10px auto;
+}
+
+:Host ::ng-deep .fc .fc-scrollgrid-section.fc-scrollgrid-section-header{
+    background-color: rgba(224, 120, 115, 0.566);
+}
+
+:Host ::ng-deep .fc .fc-highlight{
+    background-color: #f5b164a0;
 }
 
 .mat-slide-toggle.mat-voz{

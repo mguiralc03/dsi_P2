@@ -1,1 +1,126 @@
 @import "../../styles.scss";
+nav{
+    background-color: $myapp-verdeOscuro;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+
+    .links{
+        display: flex;
+        justify-content: flex-start;
+        gap: 10%;
+        margin-left: 15px;
+        color: white;
+        width: 60%;
+        align-items: center;
+
+        h2 {
+            margin: 0;
+            cursor: pointer;
+        }
+
+        h2:hover{
+            color: $myapp-naranja;
+        }
+    }
+}
+
+.mat-slide-toggle.mat-voz{
+    font-family: $myapp-font;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: 8%;
+    color: white;
+    margin: 10px 15px 10px 0px;
+}
+
+::ng-deep .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
+    background-color: $myapp-verdeBrillante;
+}
+
+::ng-deep .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
+    background-color: $myapp-grisOscuro;
+}
+
+::ng-deep .mat-slide-toggle:not(.mat-checked) .mat-slide-toggle-thumb {
+    background-color: $myapp-salmon;
+}
+
+::ng-deep .mat-slide-toggle:not(.mat-checked) .mat-slide-toggle-bar {
+    background-color: $myapp-grisOscuro;
+}
+
+.data_container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+
+.user_info{
+    position: relative;
+    display:flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: left;
+    width: 20%;
+    background-color:#c7ff799f;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    margin-left: 15%;
+
+    h2{
+        text-decoration: underline;
+    }
+
+    h3{
+        font-weight:normal ;
+    }
+}
+
+.cards{
+    position: relative;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40%;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    margin-right: 7%;
+
+
+    h1{
+        font-weight: bold;
+    }
+}
+
+.cards_container{
+    position: relative;
+    display:flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: center;
+}
+
+.personal_card{
+    position: relative;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color:#c7ff799f;
+    border-radius: 10px;
+    .info{
+        margin: 5%; 
+    }
+}
+
+
+
+

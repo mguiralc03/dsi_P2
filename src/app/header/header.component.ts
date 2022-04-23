@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
+import { changeScroll } from '../../main';
 
 @Component({
   selector: 'app-header',
@@ -52,12 +53,36 @@ export class HeaderComponent implements OnInit {
     this.showBack = true;
     this.showReg = false;
     this.emailInit.reset('', {emitEvent: false});
+    changeScroll(false);
+
   }
 
   public closeInit() {
     this.showLogin = false;
     this.showBack = false;
     this.emailInit.reset('', {emitEvent: false});
+    changeScroll(true);
+  }
+
+  public checkInit() {
+    const emailIn = document.getElementById("emailLogin") as HTMLInputElement;
+    const contraseñaIn = document.getElementById("contraseñaLogin") as HTMLInputElement;
+    if ( emailIn.value === "mariadelcarmen@gmail.com" && contraseñaIn.value === "1234"){
+      const divNotLogged = document.getElementById("not-logged") as HTMLDivElement;
+      const divLogged = document.getElementById("logged") as HTMLDivElement;
+      divNotLogged.style.display = "none";
+      divLogged.style.display = "flex"
+      this.showLogin = false;
+      this.showBack = false;
+      this.emailInit.reset('', {emitEvent: false});
+      changeScroll(true);
+      const loggedLinks = document.getElementById("logged-home") as HTMLDivElement;
+      loggedLinks.style.display = "flex";
+    }
+    else{
+      const error = document.getElementById("errorInit") as HTMLParagraphElement;
+      error.style.display = "flex";
+    }
   }
 
   public closeInitTab(event: KeyboardEvent){
@@ -65,11 +90,13 @@ export class HeaderComponent implements OnInit {
       this.showLogin = false;
       this.showBack = false;
       this.emailInit.reset('', {emitEvent: false});
+      changeScroll(true);
     }
     if (event.keyCode === 32){
       this.showLogin = false;
       this.showBack = false;
       this.emailInit.reset('', {emitEvent: false});
+      changeScroll(true);
     }
   }
 
@@ -78,12 +105,14 @@ export class HeaderComponent implements OnInit {
     this.showBack = true;
     this.showLogin = false;
     this.emailReg.reset('', {emitEvent: false});
+    changeScroll(false);
   }
 
   public closeReg() {
     this.showReg = false;
     this.showBack = false;
     this.emailReg.reset('', {emitEvent: false});
+    changeScroll(true);
   }
 
   public closeRegTab(event: KeyboardEvent){
@@ -91,13 +120,16 @@ export class HeaderComponent implements OnInit {
       this.showReg = false;
       this.showBack = false;
       this.emailReg.reset('', {emitEvent: false});
+      changeScroll(true);
     }
     if (event.keyCode === 32){
       this.showReg = false;
       this.showBack = false;
       this.emailReg.reset('', {emitEvent: false});
+      changeScroll(true);
     }
   }
+
 
 }
 

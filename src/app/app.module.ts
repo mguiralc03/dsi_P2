@@ -6,6 +6,10 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule} from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
+import { FullCalendarModule} from '@fullcalendar/angular'
+import dayGridPlugin from '@fullcalendar/daygrid';
+import interactionPlugin from '@fullcalendar/interaction';
+import timeGridPlugin from '@fullcalendar/timegrid';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,8 +22,13 @@ import { UserComponent } from './user/user.component';
 import { RecordatoriosComponent } from './recordatorios/recordatorios.component';
 import { FavoritosComponent } from './favoritos/favoritos.component';
 import { MisPedidosComponent } from './mis-pedidos/mis-pedidos.component';
-import { MedicamentosService } from './medicamentos.service'
+import { MedicamentosService } from './medicamentos.service';
 
+FullCalendarModule.registerPlugins([
+  dayGridPlugin,
+  interactionPlugin,
+  timeGridPlugin
+])
 
 @NgModule({
   declarations: [
@@ -42,7 +51,8 @@ import { MedicamentosService } from './medicamentos.service'
     MatFormFieldModule,
     ReactiveFormsModule,
     MatInputModule,
-    MatIconModule
+    MatIconModule,
+    FullCalendarModule
   ],
   providers: [MedicamentosService],
   bootstrap: [AppComponent]

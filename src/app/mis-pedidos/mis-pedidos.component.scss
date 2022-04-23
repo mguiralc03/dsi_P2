@@ -1,1 +1,17 @@
 @import "../../styles.scss";
+
+.pedido{
+    text-align: center;
+    justify-content: center;
+    margin: 1%;
+    flex-direction: column;
+    height: 60px;
+    width: 126px;
+    border-radius: 20px;
+    background: #C8FF79;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    border-radius: 20px;
+    cursor: pointer;
+    display: flex;
+  }

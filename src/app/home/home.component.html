@@ -4,6 +4,12 @@
             <h2 role="link" tabindex="0" routerLink="/">Acerca de nostros</h2>
             <h2 role="link" tabindex="0" routerLink="/">Preguntas frecuentes</h2>
         </div>
+        <div class="links" id="logged-home">
+            <h2 role="link" tabindex="0" routerLink="/favoritos">Favoritos</h2>
+            <h2 role="link" class="active" tabindex="0" routerLink="/recordatorios">Mis recordatorios</h2>
+            <h2 role="link" tabindex="0" routerLink="/mis-pedidos">Mis pedidos</h2>
+            <h2 role="link" tabindex="0" (click)="cerrarSesion()">Cerrar Sesion</h2>
+        </div>
         <div class="slider">
             <mat-slide-toggle color="voz">Descripción por voz</mat-slide-toggle>
         </div>
@@ -19,15 +25,15 @@
             </div>
             <div class="chooser_container">
                 <div class="chooser" id="farmacia">
-                    <input type="checkbox" id="farmacia_checkbox"> Farmacia
+                    <input [checked]="search('farmacia')" type="checkbox" id="farmacia_checkbox"> Farmacia
                 </div>
 
                 <div class="chooser" id="parafarmacia">
-                    <input type="checkbox" id="parafarmacia_checkbox">Parafarmacia
+                    <input [checked]="search('parafarmacia')" type="checkbox" id="parafarmacia_checkbox">Parafarmacia
                 </div>
 
                 <div class="chooser" id="ortopedia">
-                    <input type="checkbox" id="ortopedia_checkbox">Ortopedia
+                    <input [checked]="search('ortopedia')" type="checkbox" id="ortopedia_checkbox">Ortopedia
                 </div>
             </div>
         </form>

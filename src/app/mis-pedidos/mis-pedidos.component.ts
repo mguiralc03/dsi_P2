@@ -12,4 +12,8 @@ export class MisPedidosComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  public cerrarSesion(){
+    
+  }
+
 }

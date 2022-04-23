@@ -23,17 +23,18 @@
         <h2>Inicia sesión</h2>
         <mat-form-field appearance="fill" id="login-email">
             <mat-label>Email</mat-label>
-            <input matInput type="text" placeholder="pat@example.com" [formControl]="emailInit" required>
+            <input id="emailLogin" matInput type="text" placeholder="pat@example.com" [formControl]="emailInit" required>
             <mat-error *ngIf="emailInit.invalid">{{getErrorMessageEmailInit()}}</mat-error>
         </mat-form-field>
         <mat-form-field appearance="fill">
             <mat-label>Introduce tu contraseña</mat-label>
-            <input matInput [type]="hide ? 'password' : 'text'">
+            <input id="contraseñaLogin" matInput [type]="hide ? 'password' : 'text'">
             <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
               <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
             </button>
         </mat-form-field>
-        <button mat-raised-button color="salmon" (click)="closeInit()" type="submit">Iniciar sesión</button>
+        <p id="errorInit">El email o la contraseña no son correctos</p>
+        <button mat-raised-button color="salmon" (click)="checkInit()" type="submit">Iniciar sesión</button>
         <a (click)="openReg()">¿No tienes cuenta? Regístrate</a>
     </form>
        

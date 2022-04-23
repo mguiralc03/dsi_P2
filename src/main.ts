@@ -10,3 +10,17 @@ if (environment.production) {
 
 platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.error(err));
+
+export function changeScroll(active: boolean){
+  if (active){
+    const mybody = document.getElementById("app-body") as HTMLBodyElement;
+    mybody.style.overflow = "scroll";
+    mybody.ariaHidden = "false";
+  }
+  else{
+    const mybody = document.getElementById("app-body") as HTMLBodyElement;
+    mybody.style.overflow = "hidden";
+    mybody.ariaHidden = "true";
+  }
+}
+

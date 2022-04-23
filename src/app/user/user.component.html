@@ -1,1 +1,53 @@
-<p>user works!</p>
+<div id="home-container">
+
+    <nav>
+        <div class="links">
+            <h2 role="link" tabindex="0" routerLink="/">Favoritos</h2>
+            <h2 role="link" tabindex="0" routerLink="/">Mis reacordatorios</h2>
+            <h2 role="link" tabindex="0" routerLink="/">Mis pedidos</h2>
+            <h2 role="link" tabindex="0" (click)="cerrarSesion()">Cerrar Sesion</h2>
+        </div>
+        <div class="slider">
+            <mat-slide-toggle color="voz">Descripción por voz</mat-slide-toggle>
+        </div>
+    </nav>
+    <div class="data_container">
+        <div class="user_info">
+            <h1>Información del usuario</h1>
+            <h2>Nombre</h2>
+            <h3>María del Carmen</h3>
+
+            <h2>Apellidos</h2>
+            <h3>González</h3>
+
+            <h2>Correo electrónico</h2>
+            <h3>maria.dc.gonzalez@gmail.com</h3>
+
+            <h2>Dirección de facturación</h2>
+            <h3>Avenida Peter Parker, Nº 5 esc. 3 6ºC, Madrid, Madrid 28030</h3>
+
+            <button mat-raised-button id="editar" color="salmon" >Editar</button>
+
+        </div>
+        <div class="cards">
+            <h1>Tarjetas asociadas</h1>
+            <div class="cards_contaiener">
+                <div class="personal_card">
+                    <!-- PONER LA IMAGEN -->
+                    <div class="info">
+                        <h2>Pertenece</h2>
+                        <h3>María del Carmen</h3>
+                    </div>
+                    <div class="info">
+                        <h2>Código CIPA</h2>
+                        <h3>MRGN123456789012</h3>
+                    </div>
+                    <!-- PONER BOTÓN DE CERRAR -->
+                </div>
+
+            <button mat-raised-button id="add" color="salmon" >Añadir</button>
+            </div>
+        </div>
+
+    </div>
+</div>

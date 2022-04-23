@@ -1,9 +1,19 @@
-<nav>
-    <div class="links">
-        <h2 role="link" tabindex="0" routerLink="/">Acerca de nostros</h2>
-        <h2 role="link" tabindex="0" routerLink="/">Preguntas frecuentes</h2>
-    </div>
-    <div class="slider">
-        <mat-slide-toggle color="voz">Descripción por voz</mat-slide-toggle>
-    </div>
-</nav>
+<div id="recordatorios-container">
+    <nav>
+        <div class="links">
+            <h2 role="link" tabindex="0" routerLink="/favoritos">Favoritos</h2>
+            <h2 role="link" class="active" tabindex="0" routerLink="/recordatorios">Mis recordatorios</h2>
+            <h2 role="link" tabindex="0" routerLink="/mis-pedidos">Mis pedidos</h2>
+            <h2 role="link" tabindex="0" (click)="cerrarSesion()">Cerrar Sesion</h2>
+        </div>
+        <div class="slider">
+            <mat-slide-toggle color="voz">Descripción por voz</mat-slide-toggle>
+        </div>
+    </nav>
+
+    <h1>
+        Mis recordatorios
+    </h1>
+
+    <full-calendar [options]="calendarOptions"></full-calendar>
+</div>
