@@ -61,11 +61,11 @@ full-calendar{
 }
 
 :Host ::ng-deep .fc .fc-daygrid-day.fc-day-today{
-    background-color: var(--fc-today-bg-color, #e0787387);
+    background-color: var(--fc-today-bg-color, #e0787390);
 }
 
 :Host ::ng-deep .fc .fc-timegrid-col.fc-day-today {
-    background-color: var(--fc-today-bg-color, #e0787389);
+    background-color: var(--fc-today-bg-color, #e0787390);
 }
 
 :Host ::ng-deep .fc .fc-button.fc-button-primary {
@@ -86,7 +86,7 @@ full-calendar{
 }
 
 :Host ::ng-deep .fc .fc-scrollgrid-section.fc-scrollgrid-section-header{
-    background-color: rgba(224, 120, 115, 0.566);
+    background-color: #e0787390;
 }
 
 :Host ::ng-deep .fc .fc-highlight{
