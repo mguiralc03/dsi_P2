@@ -94,7 +94,7 @@ nav{
     margin-top: 1%;
     margin-bottom: 1%;
     margin-right: 7%;
-
+    width: 100%;
 
     h1{
         font-weight: bold;
@@ -105,8 +105,13 @@ nav{
     position: relative;
     display:flex;
     flex-direction: column;
-    justify-content: left;
+    justify-content: center;
     align-items: center;
+    width: 100%;
+    button{
+        width: 30%;
+    }
+    
 }
 
 .personal_card{
@@ -114,12 +119,40 @@ nav{
     display:flex;
     flex-direction: row;
     justify-content: space-between;
-    background-color:#c7ff799f;
+    background-color:#C8FF7950;
     border-radius: 10px;
+    margin-bottom: 20px;
+    width: 85%;
+    height: 70%;;
     .info{
         margin: 5%; 
+        height: 40%;
+        width: 25%;
     }
+    .material-symbols-outlined{
+        font-size: 1000%;
+        height: 100%;
+        width: 100%;
+        ;
+    }
+
+    .card{
+        margin-bottom: 5%; 
+        margin-left: 5%; 
+        margin-right: 5%; 
+        margin-top: 2%; 
+        height: 33%;
+    }
+
 }
+.material-icons-outlined{
+    font-size: 32px;
+    margin-top:20%;
+
+}
+
+
+
 
 
 

@@ -1,1 +1,151 @@
 @import "../../styles.scss";
+
+#tramitar-container {
+    min-height: calc(100vh - 56px - 127px);
+}
+
+nav{
+    background-color: $myapp-verdeOscuro;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+
+    .links{
+        display: flex;
+        justify-content: flex-start;
+        gap: 10%;
+        margin-left: 15px;
+        color: white;
+        width: 50%;
+        align-items: center;
+
+        h2 {
+            margin: 0;
+            cursor: pointer;
+        }
+
+        h2:hover{
+            color: $myapp-naranja;
+        }
+
+    }
+}
+
+#logged-home{
+    display: none;
+}
+
+.mat-slide-toggle.mat-voz{
+    font-family: $myapp-font;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: 8%;
+    color: white;
+    margin: 10px 15px 10px 0px;
+}
+
+::ng-deep .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
+    background-color: $myapp-verdeBrillante;
+}
+
+::ng-deep .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
+    background-color: $myapp-grisOscuro;
+}
+
+::ng-deep .mat-slide-toggle:not(.mat-checked) .mat-slide-toggle-thumb {
+    background-color: $myapp-salmon;
+}
+
+::ng-deep .mat-slide-toggle:not(.mat-checked) .mat-slide-toggle-bar {
+    background-color: $myapp-grisOscuro;
+}
+
+.contenido{
+    display:flex;
+    flex-direction: row;
+    .carrito{
+        width: 70%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        h2{
+            margin: 20px;
+        }
+        .med-container{
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            width: 100%;
+            .med-bought{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                .info-bought{
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    width: 80%;
+                    .med-bought-imgCont{
+                        width: 20%;
+                        img{
+                            max-width: 100%;
+                            max-height: 100%;
+                            object-fit: cover;
+                        }
+                    }
+                    .med-bought-title{
+                        width: 80%;
+                        text-align: left;
+                        padding-left: 10px;
+                        h2{
+                            padding: 0;
+                            margin: 0;
+                            margin-bottom: 10px;
+                        }
+                    }
+                    .med-compra{
+                        display: flex;
+                        flex-direction: column;
+                        width: 20%;
+                        align-items: right;
+                        .med-unidades{
+                            display: flex;
+                            flex-direction: row;
+                            background-color: $myapp-verdeClaro;
+                            border-radius: 20px;
+                            height: 20px;
+                            width: 80px;
+                            p{
+                                margin-right: 10px;
+                                margin-left: 10px;
+                                width: 50%;
+                            }
+                            button{
+                                background-color: $myapp-grisOscuro;
+                                color: white;
+                                width: 30%;
+                            }
+                        }   
+                    } 
+                }
+                mat-divider{
+                    width: 60%;
+                }
+            }
+        }
+    }
+    .data{
+        width: 20%;
+    }
+}
+
+#menos{
+    border-radius: 5px 0 0 5px;
+}
+
+#mas{
+    border-radius: 0 5px 5px 0;
+}

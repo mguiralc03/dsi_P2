@@ -9,7 +9,6 @@ import { UserComponent } from './user/user.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'home', component: HomeComponent },
   { path: 'favoritos', component: FavoritosComponent },
   { path: 'mis-pedidos', component: MisPedidosComponent },
   { path: 'recordatorios', component: RecordatoriosComponent },

@@ -7,7 +7,7 @@
             <h2 role="link" tabindex="0" (click)="cerrarSesion()">Cerrar Sesion</h2>
         </div>
         <div class="slider">
-            <mat-slide-toggle color="voz">Descripción por voz</mat-slide-toggle>
+            <mat-slide-toggle color="voz" id="descripcionVozRec" [checked]=desc (change)="changeDesc()">Descripción por voz</mat-slide-toggle>
         </div>
     </nav>
 
@@ -16,4 +16,57 @@
     </h1>
 
     <full-calendar [options]="calendarOptions"></full-calendar>
+
+    <div *ngIf="showBack" class="blurback"></div>
+
+    <div *ngIf="showAdd" id="add-event" class="pop-up">
+        <div class="header-popup">
+            <img src="../../assets/images/logo.png" alt="myHealth logo">
+            <span tabIndex="0" class="material-icons-outlined" (keydown)="closeAddTab($event)"
+                (click)="closeAdd()">highlight_off</span>
+        </div>
+        <form>
+            <h2>Añade un recordatorio</h2>
+            <div class="filaAdd">
+                <mat-form-field appearance="fill" id="medicamento">
+                    <mat-label>Medicamento</mat-label>
+                    <input id="medNombre" matInput type="text" placeholder="Paracetamol 1gr">
+                </mat-form-field>
+                <mat-form-field appearance="fill" id="dosis-field">
+                    <mat-label>Dosis</mat-label>
+                    <input id="dosis" matInput type="text" placeholder="2 comprimidos">
+                </mat-form-field>
+            </div>
+            <div class="filaAdd">
+                <h3>Fecha de inicio y fin</h3>
+                <div id="fechas">
+                    <mat-form-field appearance="fill" id="fecha-inicio">
+                        <mat-label>Fecha de inicio</mat-label>
+                        <input matInput [matDatepicker]="startdate" disabled>
+                        <mat-hint>DD/MM/YYYY</mat-hint>
+                        <mat-datepicker-toggle matSuffix [for]="startdate"></mat-datepicker-toggle>
+                        <mat-datepicker #startdate disabled="false"></mat-datepicker>
+                    </mat-form-field>
+                    <mat-form-field appearance="fill" id="fecha-fin">
+                        <mat-label>Fecha de fin</mat-label>
+                        <input matInput [matDatepicker]="enddate" disabled>
+                        <mat-hint>DD/MM/YYYY</mat-hint>
+                        <mat-datepicker-toggle matSuffix [for]="enddate"></mat-datepicker-toggle>
+                        <mat-datepicker #enddate disabled="false"></mat-datepicker>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="filaAdd">
+                <mat-form-field appearance="fill" id="hora-escogida">
+                    <mat-label>Hora de aviso</mat-label>
+                    <input matInput [ngxTimepicker]="picker">
+                    <ngx-material-timepicker #picker></ngx-material-timepicker>
+                </mat-form-field>
+                <ngx-colors ngx-colors-trigger></ngx-colors>
+            </div>
+
+            <button mat-raised-button color="salmon" (click)="addRecord()" type="submit">Iniciar sesión</button>
+        </form>
+    
+    </div>
 </div>

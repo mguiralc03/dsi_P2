@@ -104,9 +104,11 @@ nav{
     border: 1px solid #000000;
     box-sizing: border-box;
     border-radius: 20px;
-    cursor: pointer;
     display: flex;
-  }
+    position: relative;
+    cursor: pointer;
+}
+
 .chooser:hover{
     background-color:#C8FF79;
 }
@@ -139,20 +141,21 @@ nav{
 
 }
 input[type="checkbox"]{
-    width: 1px;
-    height: 1px;
+    width: 100%;
+    height: 100%;
     border-radius: 15px;
     opacity:0;
     cursor: pointer;
+    position: absolute;
 }
 input[type=checkbox]:checked{
-    width: 1px;
-    height: 1px;
+    width: 100%;
+    height: 100%;
     border-radius: 15px;
     opacity:0;
-    background-color:#C8FF79;
     cursor: pointer;
-    }
+    position: absolute;
+}
 
 #receta-container{
     width: 100%;

@@ -1,5 +1,5 @@
 <header>
-    <div role="button" tabindex="0" id="logo-container" (keydown)="moveTo($event)" (click)="changePath()">
+    <div role="button" tabindex="0" id="logo-container" (keydown)="moveTo($event, 'home')" (click)="changePath('home')">
         <img id="header-logo" src="../../assets/images/logo.png" alt="myHealth logo">
     </div>
     <div id="not-logged">
@@ -8,11 +8,13 @@
     </div>
     <div id="logged">
         <h2>¡Hola de nuevo María del Carmen!</h2>
-        <button mat-raised-button id="carrito-compra" color="salmon"><span class="material-icons-outlined">shopping_cart</span></button>
-        <button mat-raised-button id="mi-cuenta" color="salmon">Mi cuenta</button>
+        <div>
+            <button mat-raised-button id="carrito-compra" color="salmon" (keydown)="moveTo($event, 'carrito')" (click)="changePath('carrito')"><span class="material-icons-outlined">shopping_cart</span></button>
+            <button mat-raised-button id="mi-cuenta" color="salmon" (keydown)="moveTo($event, 'cuenta')" (click)="changePath('cuenta')">Mi cuenta</button>
+        </div>
     </div>
 </header>
- <div *ngIf="showBack" class="blurback"></div>
+<div *ngIf="showBack" class="blurback"></div>
 
 <div *ngIf="showLogin" id="login" class="pop-up">
     <div class="header-popup">

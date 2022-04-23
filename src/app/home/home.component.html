@@ -6,12 +6,12 @@
         </div>
         <div class="links" id="logged-home">
             <h2 role="link" tabindex="0" routerLink="/favoritos">Favoritos</h2>
-            <h2 role="link" class="active" tabindex="0" routerLink="/recordatorios">Mis recordatorios</h2>
+            <h2 role="link" tabindex="0" routerLink="/recordatorios">Mis recordatorios</h2>
             <h2 role="link" tabindex="0" routerLink="/mis-pedidos">Mis pedidos</h2>
             <h2 role="link" tabindex="0" (click)="cerrarSesion()">Cerrar Sesion</h2>
         </div>
         <div class="slider">
-            <mat-slide-toggle color="voz">Descripción por voz</mat-slide-toggle>
+            <mat-slide-toggle color="voz" id="descripcionVoz" [checked]=desc (change)="changeDesc()">Descripción por voz</mat-slide-toggle>
         </div>
     </nav>
 
@@ -25,15 +25,15 @@
             </div>
             <div class="chooser_container">
                 <div class="chooser" id="farmacia">
-                    <input [checked]="search('farmacia')" type="checkbox" id="farmacia_checkbox"> Farmacia
+                    <input (click)="search('farmacia')" type="checkbox" id="farmacia_checkbox"> Farmacia
                 </div>
 
                 <div class="chooser" id="parafarmacia">
-                    <input [checked]="search('parafarmacia')" type="checkbox" id="parafarmacia_checkbox">Parafarmacia
+                    <input (click)="search('parafarmacia')" type="checkbox" id="parafarmacia_checkbox">Parafarmacia
                 </div>
 
                 <div class="chooser" id="ortopedia">
-                    <input [checked]="search('ortopedia')" type="checkbox" id="ortopedia_checkbox">Ortopedia
+                    <input (click)="search('ortopedia')" type="checkbox" id="ortopedia_checkbox">Ortopedia
                 </div>
             </div>
         </form>

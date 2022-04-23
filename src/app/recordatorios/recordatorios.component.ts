@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CalendarOptions } from '@fullcalendar/angular';
-import esLocale from '@fullcalendar/core/locales/es'
+import esLocale from '@fullcalendar/core/locales/es';
+import { LoggedService } from '../logged.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-recordatorios',
@@ -9,13 +11,46 @@ import esLocale from '@fullcalendar/core/locales/es'
 })
 export class RecordatoriosComponent implements OnInit {
 
-  constructor() { }
+  showAdd: boolean = true;
+  showEvent: boolean = false;
+  showBack: boolean = true;
+  selectedEvent: any;
+  public logged: any;
+  public desc: any;
+
+  constructor(private router: Router, private islogged: LoggedService) { }
 
   ngOnInit(): void {
+    this.logged = this.islogged.getVariable();
+    this.desc = this.islogged.getDesc();
+    if (this.logged) {
+      const loggedLinks = document.getElementById("logged-home") as HTMLDivElement;
+      loggedLinks.style.display = "flex";
+    }
+    if (this.desc){
+      const descript = document.getElementById("descripcionVozRec") as HTMLInputElement;
+      descript.checked = this.desc;
+    }
   }
 
-  public cerrarSesion(){
+  public changeDesc(){
+    this.desc = !this.desc;
+    const descript = document.getElementById("descripcionVozRec") as HTMLInputElement;
+    descript.checked = this.desc;
+    this.islogged.updatedDesc(this.desc);
+  }
 
+
+  public addRecord(){
+    console.log("Hola");
+  }
+
+  public closeAdd(){
+    console.log("Hola");
+  }
+
+  public closeAddTab(event: KeyboardEvent){
+    console.log("Hola");
   }
 
   calendarOptions: CalendarOptions = {
@@ -36,7 +71,19 @@ export class RecordatoriosComponent implements OnInit {
     weekNumbers: true,
     weekText: "Sem ",
     selectable: true,
-    nowIndicator: true
+    nowIndicator: true,
+    editable: true
   };
+
+  public cerrarSesion() {
+    const links = document.getElementById("logged-home") as HTMLDivElement;
+    links.style.display = "none";
+    const logged = document.getElementById("logged") as HTMLDivElement;
+    const notLogged = document.getElementById("not-logged") as HTMLDivElement;
+    logged.style.display = "none";
+    notLogged.style.display = "flex";
+    this.islogged.updatedLogged(false);
+    this.router.navigate(['']);
+  }
 
 }

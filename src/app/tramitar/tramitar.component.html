@@ -1,1 +1,47 @@
-<p>tramitar works!</p>
+<div id="tramitar-container">
+    <nav>
+        <div class="links">
+            <h2 role="link" tabindex="0" routerLink="/">Acerca de nostros</h2>
+            <h2 role="link" tabindex="0" routerLink="/">Preguntas frecuentes</h2>
+        </div>
+        <div class="links" id="logged-home">
+            <h2 role="link" tabindex="0" routerLink="/favoritos">Favoritos</h2>
+            <h2 role="link" tabindex="0" routerLink="/recordatorios">Mis recordatorios</h2>
+            <h2 role="link" tabindex="0" routerLink="/mis-pedidos">Mis pedidos</h2>
+            <h2 role="link" tabindex="0" (click)="cerrarSesion()">Cerrar Sesion</h2>
+        </div>
+        <div class="slider">
+            <mat-slide-toggle color="voz" id="descripcionVoz" [checked]=desc (change)="changeDesc()">Descripción por voz</mat-slide-toggle>
+        </div>
+    </nav>
+
+    <div class="contenido">
+        <div class="carrito">
+            <h2>Tu carrito de la compra</h2>
+            <div class="med-container" *ngFor="let med of medicamentos">
+                <div class="med-bought" *ngIf="med.bought">
+                    <div class="info-bought">
+                        <div class="med-bought-imgCont">
+                            <img [src]=med.img_source [alt]=med.title>
+                        </div>
+                        <div class="med-bought-title">
+                            <h2>{{med.title}} - {{med.price}}</h2>
+                            <p>{{med.desc_short}}</p>
+                        </div>
+                        <div class="med-compra">
+                            <div class="med-unidades">
+                                <button id="menos">-</button>
+                                <p>{{med.units}}</p>
+                                <button id="mas">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <mat-divider></mat-divider>
+                </div>
+            </div>
+        </div>
+        <div class="data">
+
+        </div>
+    </div>
+</div>

@@ -8,7 +8,7 @@
             <h2 role="link" tabindex="0" (click)="cerrarSesion()">Cerrar Sesion</h2>
         </div>
         <div class="slider">
-            <mat-slide-toggle color="voz">Descripción por voz</mat-slide-toggle>
+            <mat-slide-toggle color="voz" id="descripcionVozUser" [checked]=desc (change)="changeDesc()">Descripción por voz</mat-slide-toggle>
         </div>
     </nav>
     <div class="data_container">
@@ -31,9 +31,11 @@
         </div>
         <div class="cards">
             <h1>Tarjetas asociadas</h1>
-            <div class="cards_contaiener">
+            <div class="cards_container">
                 <div class="personal_card">
-                    <!-- PONER LA IMAGEN -->
+                    <div class="card">
+                        <span class="material-symbols-outlined">credit_card</span>
+                    </div>
                     <div class="info">
                         <h2>Pertenece</h2>
                         <h3>María del Carmen</h3>
@@ -42,12 +44,120 @@
                         <h2>Código CIPA</h2>
                         <h3>MRGN123456789012</h3>
                     </div>
-                    <!-- PONER BOTÓN DE CERRAR -->
+                    <div class="close">
+                        <span tabIndex="0" class="material-icons-outlined" >highlight_off</span>
+                    </div>
                 </div>
-
-            <button mat-raised-button id="add" color="salmon" >Añadir</button>
+                <button mat-raised-button id="add" color="salmon" >Añadir</button>
             </div>
         </div>
 
     </div>
 </div>
+
+
+<!--
+<div *ngIf="showReg" id="user_info" class="pop-up">
+    <div class="header-popup">
+        <img src="../../assets/images/logo.png" alt="myHealth logo">
+        <span tabIndex="0" class="material-icons-outlined" (click)="closeReg()">highlight_off</span>
+    </div>
+    <form>
+        <h2>Editar perfil</h2> 
+        <div class="filaReg">
+            <mat-form-field appearance="fill">
+                <mat-label>Email</mat-label>
+                <input matInput>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Introduce tu contraseña</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'">
+                <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                  <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+            </mat-form-field>
+        </div>
+        <div class="filaReg">
+            <mat-form-field appearance="fill">
+                <mat-label>Dirección</mat-label>
+                <input matInput>
+            </mat-form-field>
+        </div>
+        <div class="filaReg">
+            <mat-form-field appearance="fill">
+                <mat-label>Portal</mat-label>
+                <input matInput>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Escalera</mat-label>
+                <input matInput>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Piso</mat-label>
+                <input matInput>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Letra</mat-label>
+                <input matInput>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Código postal</mat-label>
+                <input matInput>
+            </mat-form-field>
+        </div>
+        <div class="filaReg">
+            <mat-form-field appearance="fill">
+                <mat-label>Localidad</mat-label>
+                <input matInput>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Provincia</mat-label>
+                <input matInput>
+            </mat-form-field>
+        </div>
+        <button mat-raised-button color="salmon" (keydown)="closeRegTab($event)" (click)="closeReg()" type="submit">Guardar</button>
+        <button mat-raised-button color="salmon" (keydown)="closeRegTab($event)" (click)="closeReg()" type="submit">Cancelar</button>
+        <a (click)="openInit()">Ya tengo cuenta</a>
+    </form>
+</div>
+
+
+
+
+<div *ngIf="showReg" id="tarjetas" class="pop-up">
+    <div class="header-popup">
+        <img src="../../assets/images/logo.png" alt="myHealth logo">
+        <span tabIndex="0" class="material-icons-outlined" (click)="closeReg()">highlight_off</span>
+    </div>
+    <form>
+        <h2>Añadir tarjeta</h2> 
+        <div class="filaReg">
+            <mat-form-field appearance="fill">
+                <mat-label>Propietario</mat-label>
+                <input matInput>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Código CIPA</mat-label>
+                <input matInput>
+            </mat-form-field>
+        </div>
+        <div class="filaReg">
+            <h3>Para validar la tarjeta sanitaria es necesario aportar un documento en el que aparezca una foto por ambas caras de la misma</h3>
+        </div>
+        <div class="filaReg">
+            <button mat-raised-button color="salmon" (keydown)="closeRegTab($event)" (click)="closeReg()" type="submit">Guardar</button>
+        </div>
+        <div class="filaReg">
+            <h3>En caso de que la tarjeta pertenezca a otra persona y se actúe como representante se debe aportar el documento en el que se otorgue dicho poder</h3>
+        </div>
+        <div class="filaReg">
+            <button mat-raised-button color="salmon" (keydown)="closeRegTab($event)" (click)="closeReg()" type="submit">Guardar</button>
+        </div>
+        <div class="filaReg">
+            <button mat-raised-button color="salmon" (keydown)="closeRegTab($event)" (click)="closeReg()" type="submit">Guardar</button>
+        <button mat-raised-button color="salmon" (keydown)="closeRegTab($event)" (click)="closeReg()" type="submit">Cancelar</button> 
+        </div>
+        
+    </form>
+</div>
+-->
