@@ -108,7 +108,8 @@ export class HeaderComponent implements OnInit {
     changeScroll(true);
   }
 
-  public checkInit() {
+  public checkInit(e: any) {
+    e.preventDefault();
     const emailIn = document.getElementById("emailLogin") as HTMLInputElement;
     const contraseñaIn = document.getElementById("contraseñaLogin") as HTMLInputElement;
     if ( emailIn.value === "mariadelcarmen@gmail.com" && contraseñaIn.value === "1234"){

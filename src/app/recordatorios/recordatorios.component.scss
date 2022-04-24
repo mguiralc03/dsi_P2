@@ -114,7 +114,15 @@ full-calendar{
     background-color: $myapp-grisOscuro;
 }
 
+#add-record-button{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 10px auto;
+}
+
 .blurback{
+    display: none;
     width: 100%;
     height: 100vh;
     position: absolute;
@@ -125,9 +133,9 @@ full-calendar{
     z-index: 20;
 }
 
-.pop-up{
+.pop-up {
     position: absolute;
-    display: flex;
+    display: none;
     flex-direction: column;
     top: 50%;
     left: 50%;
@@ -137,9 +145,95 @@ full-calendar{
     box-shadow: 0 0 10px black;
     border-radius: 15px;
     background-color: white;
-    padding: 10px;
     z-index: 21;
+    padding: 10px;
+
+    .header-popup {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        height: 10%;
+
+        .material-icons-outlined {
+            font-size: 32px;
+        }
+
+        .material-icons-outlined:hover {
+            cursor: pointer;
+        }
+
+        img {
+            height: 30px;
+            width: 160px;
+            margin-left: 100px;
+            margin-top: 5px;
+        }
+    }
+
+    form {
+        height: 98%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 20px;
+
+        h2 {
+            margin-bottom: 30px;
+        }
+
+        .mat-raised-button.mat-salmon {
+            padding-top: 3px;
+            padding-bottom: 3px;
+            margin-top: 5px;
+        }
+
+        p {
+            color: $myapp-salmon;
+            display: none;
+        }
+
+        a {
+            margin-top: 10px;
+            color: $myapp-naranja;
+            font-weight: bolder;
+        }
+
+        a:hover {
+            cursor: pointer;
+        }
+    }
 }
+
+#add-event {
+    width: 480px;
+    height: 480px;
+
+    .filaAdd {
+        width: 90%;
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .filaAdd-bottom {
+        width: 90%;
+        margin-bottom: 5px;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 20%;
+    }
+
+    .header-popup {
+        img {
+            margin-left: 150px;
+        }
+    }
+
+}
+
 
 .timepicker-overlay{
     z-index: 10000000 !important;

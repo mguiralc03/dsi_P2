@@ -28,7 +28,8 @@ import { RecordatoriosComponent } from './recordatorios/recordatorios.component'
 import { FavoritosComponent } from './favoritos/favoritos.component';
 import { MisPedidosComponent } from './mis-pedidos/mis-pedidos.component';
 import { MedicamentosService } from './medicamentos.service';
-import { LoggedService } from './logged.service'
+import { LoggedService } from './logged.service';
+import { MAT_DATE_LOCALE } from '@angular/material/core';
 
 FullCalendarModule.registerPlugins([
   dayGridPlugin,
@@ -65,7 +66,7 @@ FullCalendarModule.registerPlugins([
     MatNativeDateModule,
     MatDividerModule
   ],
-  providers: [MedicamentosService, LoggedService],
+  providers: [MedicamentosService, LoggedService, { provide: MAT_DATE_LOCALE, useValue: 'es'}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

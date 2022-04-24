@@ -14,12 +14,15 @@
     <h1>
         Mis recordatorios
     </h1>
+    <div id="add-record-button">
+        <button mat-raised-button color="salmon" (click)="openAdd()">Añadir un recordatorio</button>
+    </div>
 
     <full-calendar [options]="calendarOptions"></full-calendar>
 
-    <div *ngIf="showBack" class="blurback"></div>
+    <div id="backblur" class="blurback"></div>
 
-    <div *ngIf="showAdd" id="add-event" class="pop-up">
+    <div id="add-event" class="pop-up">
         <div class="header-popup">
             <img src="../../assets/images/logo.png" alt="myHealth logo">
             <span tabIndex="0" class="material-icons-outlined" (keydown)="closeAddTab($event)"
@@ -37,35 +40,33 @@
                     <input id="dosis" matInput type="text" placeholder="2 comprimidos">
                 </mat-form-field>
             </div>
+            <h3>Fecha de inicio y fin</h3>
             <div class="filaAdd">
-                <h3>Fecha de inicio y fin</h3>
-                <div id="fechas">
-                    <mat-form-field appearance="fill" id="fecha-inicio">
-                        <mat-label>Fecha de inicio</mat-label>
-                        <input matInput [matDatepicker]="startdate" disabled>
-                        <mat-hint>DD/MM/YYYY</mat-hint>
-                        <mat-datepicker-toggle matSuffix [for]="startdate"></mat-datepicker-toggle>
-                        <mat-datepicker #startdate disabled="false"></mat-datepicker>
-                    </mat-form-field>
-                    <mat-form-field appearance="fill" id="fecha-fin">
-                        <mat-label>Fecha de fin</mat-label>
-                        <input matInput [matDatepicker]="enddate" disabled>
-                        <mat-hint>DD/MM/YYYY</mat-hint>
-                        <mat-datepicker-toggle matSuffix [for]="enddate"></mat-datepicker-toggle>
-                        <mat-datepicker #enddate disabled="false"></mat-datepicker>
-                    </mat-form-field>
-                </div>
+                <mat-form-field appearance="fill">
+                    <mat-label>Fecha de inicio</mat-label>
+                    <input matInput id="fecha-inicio" [matDatepicker]="startdate" disabled>
+                    <mat-hint>DD/MM/YYYY</mat-hint>
+                    <mat-datepicker-toggle matSuffix [for]="startdate"></mat-datepicker-toggle>
+                    <mat-datepicker #startdate disabled="false"></mat-datepicker>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>Fecha de fin</mat-label>
+                    <input matInput id="fecha-fin" [matDatepicker]="enddate" disabled>
+                    <mat-hint>DD/MM/YYYY</mat-hint>
+                    <mat-datepicker-toggle matSuffix [for]="enddate"></mat-datepicker-toggle>
+                    <mat-datepicker #enddate disabled="false"></mat-datepicker>
+                </mat-form-field>
             </div>
-            <div class="filaAdd">
-                <mat-form-field appearance="fill" id="hora-escogida">
+            <div class="filaAdd-bottom">
+                <mat-form-field appearance="fill">
                     <mat-label>Hora de aviso</mat-label>
-                    <input matInput [ngxTimepicker]="picker">
+                    <input matInput [ngxTimepicker]="picker" id="hora-escogida">
                     <ngx-material-timepicker #picker></ngx-material-timepicker>
                 </mat-form-field>
                 <ngx-colors ngx-colors-trigger></ngx-colors>
             </div>
 
-            <button mat-raised-button color="salmon" (click)="addRecord()" type="submit">Iniciar sesión</button>
+            <button mat-raised-button color="salmon" (click)="addRecord($event)" type="submit">Iniciar sesión</button>
         </form>
     
     </div>
