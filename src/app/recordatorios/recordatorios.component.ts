@@ -17,7 +17,7 @@ export class RecordatoriosComponent implements OnInit {
   public logged: any;
   public desc: any;
   selectedColor: string = "#3334F6";
-  public Events: EventInput[] = [];
+  EventsList: EventInput[] = [];
 
   constructor(private router: Router, private islogged: LoggedService) { }
 
@@ -110,12 +110,13 @@ export class RecordatoriosComponent implements OnInit {
       }
 
       let addevent = {title: med.value, editable: true, rrule:{ freq:'daily', dtstart: formatFechai.join("-") + "T" + startHora + ":00", until: formatFechaf.join("-") + "T" + endHora + ":00"}, color: colorToChoose, extendedProps: { dosis: dosis.value }}
-      this.Events.push(addevent)
+      this.EventsList.push(addevent)
+      this.EventsList = Object.assign([], this.EventsList)
+      this.calendarOptions.events = this.EventsList
       
     }
-    console.log(this.calendarOptions.events)
-    console.log(this.Events)
-    console.log(fechai.value, fechaf.value, hora.value, med.value, dosis.value, colorToChoose)
+    changeScroll(true);
+    this.closeAdd()
   }
 
   public closeAdd(){
@@ -156,7 +157,13 @@ export class RecordatoriosComponent implements OnInit {
       month: 'long',
       day: 'numeric'
     },
-    events: [] = [],
+    events: this.EventsList,
+    eventTimeFormat: {
+      hour: 'numeric',
+      minute: '2-digit',
+      meridiem: 'short'
+    },
+    dayMaxEventRows: true,
     aspectRatio: 1.2,
     navLinks: true,
     weekNumbers: true,
@@ -165,6 +172,7 @@ export class RecordatoriosComponent implements OnInit {
     nowIndicator: true,
     editable: true,
     select: function (info) {
+      changeScroll(false);
       const back = document.getElementById("backblur") as HTMLDivElement
       back.style.display = "flex";
       const addEvent = document.getElementById("add-event") as HTMLDivElement
