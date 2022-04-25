@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { CalendarOptions, DateSelectArg } from '@fullcalendar/angular';
+import { CalendarOptions } from '@fullcalendar/angular';
+import { EventInput } from '@fullcalendar/core'
 import esLocale from '@fullcalendar/core/locales/es';
 import { LoggedService } from '../logged.service';
 import { changeScroll } from '../../main';
 import { Router } from '@angular/router';
-import { FormControl } from '@angular/forms'
 
 @Component({
   selector: 'app-recordatorios',
@@ -17,7 +17,7 @@ export class RecordatoriosComponent implements OnInit {
   public logged: any;
   public desc: any;
   selectedColor: string = "#3334F6";
-  public Events: any = []
+  public Events: EventInput[] = [];
 
   constructor(private router: Router, private islogged: LoggedService) { }
 
@@ -56,13 +56,13 @@ export class RecordatoriosComponent implements OnInit {
     const hora = document.getElementById("hora-escogida") as HTMLInputElement
     const med = document.getElementById("medNombre") as HTMLInputElement
     const dosis = document.getElementById("dosis") as HTMLInputElement
-    const color = this.selectedColor
+    const colorToChoose = this.selectedColor
     if (fechai.value === "" || fechaf.value === ""){
       alert("Tienes que aportar un medicamento y una dosis")
       this.closeAdd()
     } else {
-      let formatFechai = fechai.value.split("/").reverse().join("-")
-      let formatFechaf = fechaf.value.split("/").reverse().join("-")
+      let formatFechai = fechai.value.split("/").reverse()
+      let formatFechaf = fechaf.value.split("/").reverse()
       console.log(formatFechai, formatFechaf)
       let pmhora = hora.value.split(" ")
       let startHora = ""
@@ -71,24 +71,51 @@ export class RecordatoriosComponent implements OnInit {
         startHora = pmhora[0]
         let format = pmhora[0].split(":")
         if (+pmhora[0].split(":")[1] < 30){
+          if (+format[0] < 10){
+            format[0] = "0" + format[0]
+          }
+          startHora = format[0] + ":" + format[1]
           endHora = format[0] + ":" + (+format[1] + 30).toString()
         } else {
+          startHora = format[0] + ":" + format[1]
           endHora = (+format[0] + 1).toString() + ":" + ((+format[1] + 30) % 60).toString()
         }
       }
-      let addevent = {title: med.value,
-                      start: formatFechai,
-                      end: formatFechaf,
-                      color: color,
-                      startTime: startHora,
-                      endTime: endHora,
-                      extendedProps: {
-                        dosis: dosis.value
-                      }}
+      if (pmhora[1] === "PM"){
+        startHora = pmhora[0]
+        let format = pmhora[0].split(":")
+        if (+pmhora[0].split(":")[1] < 30) {
+          startHora = (+format[0] + 12).toString() + ":" + format[1]
+          endHora = (+format[0] + 12).toString() + ":" + (+format[1] + 30).toString()
+        } else {
+          startHora = (+format[0] + 12).toString() + ":" + format[1]
+          endHora = (+format[0] + 13).toString() + ":" + ((+format[1] + 30) % 60).toString()
+        }
+      }
+
+      if (formatFechai[1].length === 1){
+        formatFechai[1] = "0" + formatFechai[1]
+      }
+
+      if (formatFechai[2].length === 1) {
+        formatFechai[2] = "0" + formatFechai[2]
+      }
+
+      if (formatFechaf[1].length === 1) {
+        formatFechaf[1] = "0" + formatFechaf[1]
+      }
+
+      if (formatFechaf[2].length === 1) {
+        formatFechaf[2] = "0" + formatFechaf[2]
+      }
+
+      let addevent = {title: med.value, editable: true, rrule:{ freq:'daily', dtstart: formatFechai.join("-") + "T" + startHora + ":00", until: formatFechaf.join("-") + "T" + endHora + ":00"}, color: colorToChoose, extendedProps: { dosis: dosis.value }}
       this.Events.push(addevent)
-      this.calendarOptions.events = this.Events
+      
     }
-    console.log(fechai.value, fechaf.value, hora.value, med.value, dosis.value, color)
+    console.log(this.calendarOptions.events)
+    console.log(this.Events)
+    console.log(fechai.value, fechaf.value, hora.value, med.value, dosis.value, colorToChoose)
   }
 
   public closeAdd(){
@@ -129,7 +156,7 @@ export class RecordatoriosComponent implements OnInit {
       month: 'long',
       day: 'numeric'
     },
-    events: [],
+    events: [] = [],
     aspectRatio: 1.2,
     navLinks: true,
     weekNumbers: true,

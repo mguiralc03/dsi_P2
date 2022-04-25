@@ -15,6 +15,7 @@ import { FullCalendarModule} from '@fullcalendar/angular'
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import timeGridPlugin from '@fullcalendar/timegrid';
+import rrulePlugin from '@fullcalendar/rrule';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -35,7 +36,8 @@ import { MAT_DATE_LOCALE } from '@angular/material/core';
 FullCalendarModule.registerPlugins([
   dayGridPlugin,
   interactionPlugin,
-  timeGridPlugin
+  timeGridPlugin,
+  rrulePlugin
 ])
 
 @NgModule({

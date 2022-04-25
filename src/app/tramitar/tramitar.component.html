@@ -29,19 +29,44 @@
                             <p>{{med.desc_short}}</p>
                         </div>
                         <div class="med-compra">
-                            <div class="med-unidades">
-                                <button id="menos">-</button>
-                                <p>{{med.units}}</p>
-                                <button id="mas">+</button>
+                            <div class="unidades">
+                                <p>Unidades: </p>
+                                <div class="med-unidades">
+                                    <button id="menos">-</button>
+                                    <p>{{med.units}}</p>
+                                    <button id="mas">+</button>
+                                </div>
+                            </div>
+                            <div class="total">
+                                <p>Total: </p>
+                                <p id="precio-total">{{med.units * med.price}}</p>
                             </div>
                         </div>
                     </div>
                     <mat-divider></mat-divider>
                 </div>
             </div>
+            <div class = "botones-compra">
+                <button mat-raised-button color="salmon">Seguir compra</button>
+                <button mat-raised-button color="salmon">Finalizar compra</button>
+            </div>
         </div>
         <div class="data">
-
+            <div class="direccion-envio">
+                <h2>Dirección de envío:</h2>
+                <div class="labels" id="direccion">
+                    <p>Avenida Peter Parker, <br>
+                        nº5   esc.3     6ºC</p>
+                </div>
+                <div class="labels">
+                    <p>Madrid</p>
+                </div>
+                <div class="labels">
+                    <p>Madrid, 28035</p>
+                </div>
+            </div>
+            <div class="metodo-pago">
+            </div>
         </div>
     </div>
 </div>

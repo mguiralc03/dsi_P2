@@ -65,7 +65,7 @@ nav{
     display:flex;
     flex-direction: row;
     .carrito{
-        width: 70%;
+        width: 80%;
         height: 100%;
         display: flex;
         flex-direction: column;
@@ -111,22 +111,37 @@ nav{
                         flex-direction: column;
                         width: 20%;
                         align-items: right;
-                        .med-unidades{
+                        .unidades{
                             display: flex;
                             flex-direction: row;
-                            background-color: $myapp-verdeClaro;
-                            border-radius: 20px;
-                            height: 20px;
-                            width: 80px;
                             p{
                                 margin-right: 10px;
-                                margin-left: 10px;
-                                width: 50%;
                             }
-                            button{
-                                background-color: $myapp-grisOscuro;
-                                color: white;
-                                width: 30%;
+                            .med-unidades{
+                                display: flex;
+                                flex-direction: row;
+                                background-color: $myapp-verdeClaro;
+                                border-radius: 20px;
+                                height: 20px;
+                                width: 80px;
+                                p{
+                                    margin-right: 10px;
+                                    margin-left: 10px;
+                                    width: 50%;
+                                }
+                                button{
+                                    background-color: $myapp-grisOscuro;
+                                    color: white;
+                                    width: 30%;
+                                }
+                            }
+
+                        }
+                        .total{
+                            display: flex; 
+                            flex-direction: row;
+                            p{
+                                margin-right: 10px;
                             }
                         }   
                     } 
@@ -136,9 +151,42 @@ nav{
                 }
             }
         }
+        .botones-compra{
+            display: flex;
+            flex-direction: inline;
+            justify-content: space-between;
+            width: 60%;
+            margin-left: 20%;
+            margin-right: 20%;
+            margin-top: 20px;
+            button{
+                width: 40%;
+            }        
+        }
     }
     .data{
         width: 20%;
+        height: 80%;
+        margin-top: 40px;
+        margin-right: 40px;
+        background-color: $myapp-verdeBrillante;
+        border-radius: 20px;
+        padding: 20px;
+        .direccion-envio{
+            display: flex;
+            flex-direction: column;
+            .labels{
+                background-color: $myapp-verdeClaro;
+                padding: 10px;
+                align-items: center;
+                display: flex;
+                border-radius: 10px;
+                width: 50%;
+                height: 10px;
+                margin-bottom: 5px;
+                margin-left: 50px;
+            }
+        }
     }
 }
 
@@ -148,4 +196,11 @@ nav{
 
 #mas{
     border-radius: 0 5px 5px 0;
+}
+
+#precio-total{
+    margin-left: 20px;
+}
+#direccion{
+    height: 40px;
 }

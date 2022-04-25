@@ -14,12 +14,12 @@ platformBrowserDynamic().bootstrapModule(AppModule)
 export function changeScroll(active: boolean){
   if (active){
     const mybody = document.getElementById("app-body") as HTMLBodyElement;
-    mybody.style.overflow = "scroll";
+    mybody.style.overflowY = "scroll";
     mybody.ariaHidden = "false";
   }
   else{
     const mybody = document.getElementById("app-body") as HTMLBodyElement;
-    mybody.style.overflow = "hidden";
+    mybody.style.overflowY = "hidden";
     mybody.ariaHidden = "true";
   }
 }
