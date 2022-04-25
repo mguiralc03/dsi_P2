@@ -63,7 +63,7 @@
                     <input matInput [ngxTimepicker]="picker" id="hora-escogida">
                     <ngx-material-timepicker #picker></ngx-material-timepicker>
                 </mat-form-field>
-                <ngx-colors ngx-colors-trigger></ngx-colors>
+                <ngx-colors [(ngModel)]="selectedColor" name="color" ngx-colors-trigger></ngx-colors>
             </div>
 
             <button mat-raised-button color="salmon" (click)="addRecord($event)" type="submit">Iniciar sesión</button>

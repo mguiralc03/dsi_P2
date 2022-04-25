@@ -26,7 +26,7 @@
             <h2>Dirección de facturación</h2>
             <h3>Avenida Peter Parker, Nº 5 esc. 3 6ºC, Madrid, Madrid 28030</h3>
 
-            <button mat-raised-button id="editar" color="salmon" >Editar</button>
+            <button mat-raised-button (click)="openEdit()" (keydown)="openEditTab($event)" id="editar" color="salmon" >Editar</button>
 
         </div>
         <div class="cards">
@@ -48,7 +48,7 @@
                         <span tabIndex="0" class="material-icons-outlined" >highlight_off</span>
                     </div>
                 </div>
-                <button mat-raised-button id="add" color="salmon" >Añadir</button>
+                <button mat-raised-button id="add" color="salmon" (click)="openCard()" (keydown)="openCardTab($event)">Añadir</button>
             </div>
         </div>
 
@@ -56,11 +56,10 @@
 </div>
 
 
-<!--
-<div *ngIf="showReg" id="user_info" class="pop-up">
+<div *ngIf="showEdit" id="user_info" class="pop-up">
     <div class="header-popup">
         <img src="../../assets/images/logo.png" alt="myHealth logo">
-        <span tabIndex="0" class="material-icons-outlined" (click)="closeReg()">highlight_off</span>
+        <span tabIndex="0" class="material-icons-outlined" (click)="closeEdit()">highlight_off</span>
     </div>
     <form>
         <h2>Editar perfil</h2> 
@@ -115,19 +114,16 @@
                 <input matInput>
             </mat-form-field>
         </div>
-        <button mat-raised-button color="salmon" (keydown)="closeRegTab($event)" (click)="closeReg()" type="submit">Guardar</button>
-        <button mat-raised-button color="salmon" (keydown)="closeRegTab($event)" (click)="closeReg()" type="submit">Cancelar</button>
-        <a (click)="openInit()">Ya tengo cuenta</a>
+        <button mat-raised-button color="salmon" (keydown)="closeEditTab($event)" (click)="closeEdit()" type="submit">Guardar</button>
+        <button mat-raised-button color="salmon" (keydown)="closeEditTab($event)" (click)="closeEdit()" type="submit">Cancelar</button>
     </form>
 </div>
 
 
-
-
-<div *ngIf="showReg" id="tarjetas" class="pop-up">
+<div *ngIf="showCard" id="tarjetas" class="pop-up">
     <div class="header-popup">
         <img src="../../assets/images/logo.png" alt="myHealth logo">
-        <span tabIndex="0" class="material-icons-outlined" (click)="closeReg()">highlight_off</span>
+        <span tabIndex="0" class="material-icons-outlined" (click)="closeCard()">highlight_off</span>
     </div>
     <form>
         <h2>Añadir tarjeta</h2> 
@@ -145,19 +141,18 @@
             <h3>Para validar la tarjeta sanitaria es necesario aportar un documento en el que aparezca una foto por ambas caras de la misma</h3>
         </div>
         <div class="filaReg">
-            <button mat-raised-button color="salmon" (keydown)="closeRegTab($event)" (click)="closeReg()" type="submit">Guardar</button>
+            <button mat-raised-button color="salmon" (keydown)="closeCardTab($event)" (click)="closeCard()" type="submit">Adjuntar archivo</button>
         </div>
         <div class="filaReg">
             <h3>En caso de que la tarjeta pertenezca a otra persona y se actúe como representante se debe aportar el documento en el que se otorgue dicho poder</h3>
         </div>
         <div class="filaReg">
-            <button mat-raised-button color="salmon" (keydown)="closeRegTab($event)" (click)="closeReg()" type="submit">Guardar</button>
+            <button mat-raised-button color="salmon" (keydown)="closeCardTab($event)" (click)="closeCard()" type="submit">Adjuntar archivo</button>
         </div>
         <div class="filaReg">
-            <button mat-raised-button color="salmon" (keydown)="closeRegTab($event)" (click)="closeReg()" type="submit">Guardar</button>
-        <button mat-raised-button color="salmon" (keydown)="closeRegTab($event)" (click)="closeReg()" type="submit">Cancelar</button> 
+            <button mat-raised-button color="salmon" (keydown)="closeCardTab($event)" (click)="closeCard()" type="submit">Guardar</button>
+        <button mat-raised-button color="salmon" (keydown)="closeCardTab($event)" (click)="closeCard()" type="submit">Cancelar</button> 
         </div>
         
     </form>
 </div>
--->

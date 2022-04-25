@@ -18,6 +18,7 @@ import timeGridPlugin from '@fullcalendar/timegrid';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { FormsModule } from '@angular/forms'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
@@ -64,7 +65,8 @@ FullCalendarModule.registerPlugins([
     NgxColorsModule,
     NgxMaterialTimepickerModule,
     MatNativeDateModule,
-    MatDividerModule
+    MatDividerModule,
+    FormsModule
   ],
   providers: [MedicamentosService, LoggedService, { provide: MAT_DATE_LOCALE, useValue: 'es'}],
   bootstrap: [AppComponent]

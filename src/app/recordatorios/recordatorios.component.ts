@@ -4,6 +4,7 @@ import esLocale from '@fullcalendar/core/locales/es';
 import { LoggedService } from '../logged.service';
 import { changeScroll } from '../../main';
 import { Router } from '@angular/router';
+import { FormControl } from '@angular/forms'
 
 @Component({
   selector: 'app-recordatorios',
@@ -15,6 +16,8 @@ export class RecordatoriosComponent implements OnInit {
   selectedEvent: any;
   public logged: any;
   public desc: any;
+  selectedColor: string = "#3334F6";
+  public Events: any = []
 
   constructor(private router: Router, private islogged: LoggedService) { }
 
@@ -53,8 +56,39 @@ export class RecordatoriosComponent implements OnInit {
     const hora = document.getElementById("hora-escogida") as HTMLInputElement
     const med = document.getElementById("medNombre") as HTMLInputElement
     const dosis = document.getElementById("dosis") as HTMLInputElement
-    const color = document.getElementById("color") as HTMLInputElement
-    console.log(fechai.value, fechaf.value, hora.value, med.value, dosis.value, color.value)
+    const color = this.selectedColor
+    if (fechai.value === "" || fechaf.value === ""){
+      alert("Tienes que aportar un medicamento y una dosis")
+      this.closeAdd()
+    } else {
+      let formatFechai = fechai.value.split("/").reverse().join("-")
+      let formatFechaf = fechaf.value.split("/").reverse().join("-")
+      console.log(formatFechai, formatFechaf)
+      let pmhora = hora.value.split(" ")
+      let startHora = ""
+      let endHora = ""
+      if (pmhora[1] === "AM"){
+        startHora = pmhora[0]
+        let format = pmhora[0].split(":")
+        if (+pmhora[0].split(":")[1] < 30){
+          endHora = format[0] + ":" + (+format[1] + 30).toString()
+        } else {
+          endHora = (+format[0] + 1).toString() + ":" + ((+format[1] + 30) % 60).toString()
+        }
+      }
+      let addevent = {title: med.value,
+                      start: formatFechai,
+                      end: formatFechaf,
+                      color: color,
+                      startTime: startHora,
+                      endTime: endHora,
+                      extendedProps: {
+                        dosis: dosis.value
+                      }}
+      this.Events.push(addevent)
+      this.calendarOptions.events = this.Events
+    }
+    console.log(fechai.value, fechaf.value, hora.value, med.value, dosis.value, color)
   }
 
   public closeAdd(){

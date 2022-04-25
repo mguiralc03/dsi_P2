@@ -11,6 +11,9 @@ export class UserComponent implements OnInit {
 
   public logged: any;
   public desc: any;
+  public showEdit: boolean = false;
+  public showCard: boolean = false;
+  public hide = true;
 
   constructor(private router: Router, private islogged: LoggedService) { }
 
@@ -44,5 +47,55 @@ export class UserComponent implements OnInit {
     this.islogged.updatedLogged(false);
     this.router.navigate(['']);
   }
+  public openEdit() {
+    this.showEdit = true;
+  }
+  public closeEdit() {
+    this.showEdit = false;
+  }
+  public openEditTab(event: KeyboardEvent){
+    if (event.key === 'Enter'){
+      this.showEdit = true;
+    }
+    if (event.keyCode === 32){
+      this.showEdit = true;
+
+    }
+  }
+  public closeEditTab(event: KeyboardEvent){
+    if (event.key === 'Enter'){
+      this.showEdit = false;
+    }
+    if (event.keyCode === 32){
+      this.showEdit = false;
+
+    }
+  }
+
+  public openCard() {
+    this.showCard = true;
+  }
+  public closeCard() {
+    this.showCard = false;
+  }
+  public openCardTab(event: KeyboardEvent){
+    if (event.key === 'Enter'){
+      this.showCard = true;
+    }
+    if (event.keyCode === 32){
+      this.showCard = true;
+
+    }
+  }
+  public closeCardTab(event: KeyboardEvent){
+    if (event.key === 'Enter'){
+      this.showCard = false;
+    }
+    if (event.keyCode === 32){
+      this.showCard = false;
+
+    }
+  }
 
 }
+
