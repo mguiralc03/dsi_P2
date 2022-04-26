@@ -1,4 +1,9 @@
 @import "../../styles.scss";
+
+#user-container {
+    min-height: calc(100vh - 56px - 127px);
+}
+
 nav{
     background-color: $myapp-verdeOscuro;
     display: flex;

@@ -81,7 +81,7 @@
                         (click)="closePopup()">highlight_off</span>
                 </div>
                 <div class="info-med">
-                    <h2>{{med.title}} - {{med.price}}</h2>
+                    <h2>{{med.title}} - {{med.price | currency: 'EUR':'€':'1.2-2':'fr'}} </h2>
                     <div class="imagen-desc">
                         <div class="image-med">
                             <img [src]=med.img_source [alt]=med.title>
