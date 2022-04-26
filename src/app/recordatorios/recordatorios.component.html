@@ -71,4 +71,23 @@
         
         </div>
     </div>
+
+    <div id="backblur-event" class="blurback">
+        <div id="show-event" class="pop-up">
+            <div class="header-popup">
+                <img src="../../assets/images/logo.png" alt="myHealth logo">
+                <span tabIndex="0" class="material-icons-outlined" (keydown)="closeShowTab($event)"
+                    (click)="closeShow()">highlight_off</span>
+            </div>
+            <div id="info-container">
+                <h2 id="event-title"></h2>
+                <div>
+                    <p id="event-dosis">La dosis es </p>
+                    <p id="event-hora">Debe tomarlo a la(s) </p>
+                </div>   
+            </div>
+            <div id="button-div"><button mat-raised-button color="salmon" (click)="alertar('No funciona')">Borrar el evento</button></div>
+            
+        </div>
+    </div>
 </div>

@@ -231,6 +231,41 @@ full-calendar{
 
 }
 
+#show-event{
+    width: 350px;
+    height: 170px;
+
+    #button-div{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin: 5px auto 10px auto;
+
+    }
+    
+    #info-container{
+        display: flex;
+        width: 90%;
+        margin: 10px auto;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+
+        h2{
+            width: 100%;
+            margin: 10px auto;
+            text-align: center;
+        }
+
+        div {
+            display: flex;
+            margin: 5px auto;
+            width: 100%;
+            justify-content: space-between;
+        }
+    }
+}
+
 
 .timepicker-overlay{
     z-index: 10000000 !important;

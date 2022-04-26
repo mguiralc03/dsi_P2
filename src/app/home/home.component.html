@@ -18,8 +18,8 @@
     <div class="search_tool">
         <form class="search_form">
             <div class="search_bar">
-                    <input type="search" class="search_text">
-                    <button class= search_button mat-button color="med">
+                    <input type="search" id="text_search" class="search_text">
+                    <button class= search_button mat-button color="med" (change)="handleChange()" (click)="search('a')">
                         <span class="material-symbols-outlined">search </span>
                     </button>
             </div>
@@ -45,7 +45,7 @@
     </div>
 
     <div id="medicamentos-container">
-        <div class="med-container" *ngFor="let med of medicamentos">
+        <div class="med-container" *ngFor="let med of medicamentos | searchFilter: filtroBusqueda">
             <div class="med-circle" *ngIf=med.receta></div>
             <div class="med-img-container">
                 <img [src]=med.img_source [alt]=med.title>

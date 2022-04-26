@@ -32,9 +32,6 @@ nav{
     }
 }
 
-#logged-home{
-    display: none;
-}
 
 .mat-slide-toggle.mat-voz{
     font-family: $myapp-font;
@@ -133,6 +130,7 @@ nav{
                                     background-color: $myapp-grisOscuro;
                                     color: white;
                                     width: 30%;
+                                    cursor: pointer;
                                 }
                             }
 
@@ -140,8 +138,15 @@ nav{
                         .total{
                             display: flex; 
                             flex-direction: row;
-                            p{
-                                margin-right: 10px;
+                            .div-precio-total{
+                                display: flex;
+                                flex-direction: row;
+                                justify-content: center;
+                                background-color: $myapp-verdeClaro;
+                                border-radius: 5px;
+                                width: 80px;
+                                height: 20px;
+                                margin-left: 33px;
                             }
                         }   
                     } 
@@ -159,6 +164,7 @@ nav{
             margin-left: 20%;
             margin-right: 20%;
             margin-top: 20px;
+            margin-bottom: 50px;
             button{
                 width: 40%;
             }        
@@ -167,24 +173,85 @@ nav{
     .data{
         width: 20%;
         height: 80%;
-        margin-top: 40px;
-        margin-right: 40px;
-        background-color: $myapp-verdeBrillante;
+        margin-top: 5%;
+        margin-right: 5%;
+        background-color: #c7ff799f;
         border-radius: 20px;
         padding: 20px;
         .direccion-envio{
             display: flex;
             flex-direction: column;
+            h2{
+                margin-left: 40px;
+            }
             .labels{
                 background-color: $myapp-verdeClaro;
-                padding: 10px;
+                padding-left: 15px;
+                padding-top: 5px;
+                padding-bottom: 5px;
                 align-items: center;
                 display: flex;
                 border-radius: 10px;
-                width: 50%;
-                height: 10px;
+                width: 60%;
+                height: 15px;
                 margin-bottom: 5px;
-                margin-left: 50px;
+                margin-left: 80px;
+                p{
+                    margin: 5px;
+                }
+            }
+            .editar-button{
+                width: 100%;
+                margin-top: 20px;
+                margin-bottom: 20px;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+            }
+        }
+        .metodo-pago{
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            h2{
+                margin-left: 40px;
+            }
+            .datos-pago{
+                display: flex;
+                flex-direction: row;
+                width: 80%;
+                margin-left: 40px;
+                align-items: center;
+                .card{
+                    width: 20%;
+                    margin-right: 10px;
+                    .material-symbols-outlined{
+                        font-size: 400%;
+                    }
+                }
+                .labels{
+                    background-color: $myapp-verdeClaro;
+                    padding-left: 15px;
+                    padding-top: 10px;
+                    align-items: center;
+                    display: flex;
+                    border-radius: 10px;
+                    width: 60%;
+                    height: 15px;
+                    margin-bottom: 5px;
+                    margin-left: 5px;
+                }
+            }
+            .editar-button{
+                width: 100%;
+                display:flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                button{
+                    margin-bottom: 20px;
+                }
             }
         }
     }
@@ -197,10 +264,55 @@ nav{
 #mas{
     border-radius: 0 5px 5px 0;
 }
-
-#precio-total{
-    margin-left: 20px;
-}
 #direccion{
-    height: 40px;
+    height: 45px;
+}
+#vertical-separator{
+    margin-top: 6%;
+    margin-right: 80px;
+}
+#cvv{
+    width: 20%;
+    background-color: $myapp-verdeClaro;
+    padding-left: 15px;
+    padding-top: 10px;
+    align-items: center;
+    display: flex;
+    border-radius: 10px;
+    height: 15px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+}
+.pop-up{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 350px;
+    width: 400px;
+    box-shadow: 0 0 10px black;
+    border-radius: 15px;
+    background-color: white;
+    z-index: 9999;
+    padding: 10px;
+    .header-popup{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        height: 10%;
+        .material-icons-outlined{
+            font-size: 32px;
+        }
+        .material-icons-outlined:hover{
+            cursor: pointer;
+        }
+        img{
+            height: 30px;
+            width: 160px;
+            margin-left: 100px;
+            margin-top: 5px;
+        }
+    }
 }

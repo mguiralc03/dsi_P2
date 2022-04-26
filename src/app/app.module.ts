@@ -32,6 +32,7 @@ import { MisPedidosComponent } from './mis-pedidos/mis-pedidos.component';
 import { MedicamentosService } from './medicamentos.service';
 import { LoggedService } from './logged.service';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
+import { SearchFilterPipe } from './search-filter.pipe';
 
 FullCalendarModule.registerPlugins([
   dayGridPlugin,
@@ -50,7 +51,8 @@ FullCalendarModule.registerPlugins([
     UserComponent,
     RecordatoriosComponent,
     FavoritosComponent,
-    MisPedidosComponent  
+    MisPedidosComponent,
+    SearchFilterPipe
   ],
   imports: [
     BrowserModule,

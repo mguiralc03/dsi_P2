@@ -13,7 +13,9 @@ export class MedicamentosService {
     new Medicamento(3, '../../assets/images/rhinocort.jpg', 'Rhinocort 64μgr', 8.12, 'Alivio de síntomas nasales. Vía nasal.', 'Alivio de síntomas nasales. Vía nasal. Rhinocort 64 microgramos contiene como principio activo budesonida, que pertenece a un grupo de medicamentos llamados glucocorticoides y se emplea para reducir la inflamación.Rhinocort 64 microgramos reduce la inflamación de la mucosa', 1, true, false, true, Category.farmacia),
     new Medicamento(4, '../../assets/images/valium.jpg', 'Valium 10mg', 1.76, 'El diazepam tiene efectos tranquilizantes y sedantes', ' Benzodiacepina de acción prolongada. Facilita la neurotransmisión fisiológica de carácter inhibidor mediada por GABA en distintas zonas del sistema nervioso central provocando un efecto ansiolítico, sedante, anticonvulsivante y miorrelajante.', 0, true, false, false, Category.farmacia),
     new Medicamento(5, '../../assets/images/muletas.jpg', 'Muletas', 10, 'Alquiler de muletas para uso por lesión', 'La muleta es un apoyo para el cuerpo humano diseñado con el propósito de asistir al caminar cuando una de las extremidades inferiores requiere soporte adicional durante el desplazamiento, comúnmente cuando el ser humano sufre algún tipo de incapacidad para caminar con alguna de estas.', 0, false, false, false, Category.ortopedia),
-    new Medicamento(6, '../../assets/images/nivea.jpg', 'Crema de manos', 2.30, 'Crema de manos de Nivea para evitar la sequedad de estas.', 'Su fórmula con Dexpantenol repara en profundidad y suaviza instantáneamente la delicada piel de las manos extrasecas y agrietadas. Además, cuenta con una textura fundente y ligera que penetra en la piel de forma suave y se absorbe rápidamente sin dejar sensación grasa.', 0, false, false, false, Category.parafarmacia)
+    new Medicamento(6, '../../assets/images/nivea.jpg', 'Crema de manos', 2.30, 'Crema de manos de Nivea para evitar la sequedad de estas.', 'Su fórmula con Dexpantenol repara en profundidad y suaviza instantáneamente la delicada piel de las manos extrasecas y agrietadas. Además, cuenta con una textura fundente y ligera que penetra en la piel de forma suave y se absorbe rápidamente sin dejar sensación grasa.', 0, false, false, false, Category.parafarmacia),
+    new Medicamento(7, '../../assets/images/silla-ruedas.jpg', 'Silla de ruedas', 25, 'Silla de ruedas por alquiler semanal para uso por lesión temporal', 'Una silla de ruedas es una ayuda técnica, una silla adaptada con al menos tres ruedas, aunque lo habitual es que disponga de cuatro. Su diseño permite el desplazamiento de personas con problemas de locomoción o con movilidad reducida, debido a una lesión o enfermedad física', 0, false, false, false, Category.ortopedia),
+    new Medicamento(8, '../../assets/images/pasta-dientes.jpg', 'Pasta de dientes', 5.60, 'Pasta de dientes fluocaril. Contiene fluor para prevenir la caries', 'Fluocaril Dientes Sensibles 145mg es una pasta de dientes indicada para ayudar a reducir la sesnsibilidad dental, gracias a la presencia activa de citrato de potasio. De venta exclusiva en farmacias y parafarmacias.', 0, false, false, false, Category.parafarmacia)
   ]
 
   getMedicamentos(){
@@ -27,6 +29,7 @@ export class MedicamentosService {
         med.receta = medicamento.receta
         med.favorite = medicamento.favorite
         med.bought = medicamento.bought
+        med.total = medicamento.units * medicamento.price
       }
     }
   }
@@ -45,6 +48,7 @@ export class Medicamento {
   favorite: boolean;
   bought: boolean;
   category: Category;
+  total: number;
 
   constructor(id: number, img_source: string, title: string, price: number, desc_short: string, desc_long: string, units: number, receta: boolean, favorite: boolean, bought: boolean, category: Category){
     this.id = id
@@ -58,10 +62,11 @@ export class Medicamento {
     this.favorite = favorite;
     this.bought = bought;
     this.category = category;
+    this.total = price * units;
 
   }
 }
-enum Category {
+ export enum Category {
   farmacia,
   parafarmacia,
   ortopedia

@@ -16,6 +16,7 @@ export class HomeComponent implements OnInit {
   public medicamentos: Array<Medicamento> = [];
   public logged: any;
   public desc: any;
+  public filtroBusqueda: string = "";
 
   constructor(private router: Router, private listaMed: MedicamentosService, private islogged: LoggedService) { }
 
@@ -42,32 +43,44 @@ export class HomeComponent implements OnInit {
   }
 
   public changeFill(id: any, type: string) {
-    for (let med of this.medicamentos){
-      if (med.id === id){
-        if (type === 'fav'){
-          if (med.favorite) {
-            med.favorite = false;
-            this.listaMed.updateMedicamanto(med);
-          } else {
-            med.favorite = true;
-            this.listaMed.updateMedicamanto(med);
+    if (!this.logged){
+      alert("Tienes que iniciar sesion")
+    } else {
+      for (let med of this.medicamentos){
+        if (med.id === id){
+          if (type === 'fav'){
+            if (med.favorite) {
+              med.favorite = false;
+              this.listaMed.updateMedicamanto(med);
+            } else {
+              med.favorite = true;
+              this.listaMed.updateMedicamanto(med);
+            }
           }
-        }
-        if (type === 'shop'){
-          if (med.bought) {
-            med.bought = false;
-            med.units = 0;
-            this.listaMed.updateMedicamanto(med);
-          } else {
-            med.bought = true;
-            med.units = 1;
-            this.listaMed.updateMedicamanto(med);
+          if (type === 'shop'){
+            if (med.bought) {
+              med.bought = false;
+              med.units = 0;
+              this.listaMed.updateMedicamanto(med);
+            } else {
+              med.bought = true;
+              med.units = 1;
+              this.listaMed.updateMedicamanto(med);
+            }
           }
+          
         }
-        
       }
     }
   }
+
+  public handleChange(){
+    const text = document.getElementById("text_search") as HTMLInputElement
+    if (text.value == ""){
+      this.filtroBusqueda = "";
+    }
+  }
+
 
   public search(filtro: string){
     var filtroaplicado;
@@ -76,29 +89,28 @@ export class HomeComponent implements OnInit {
     if (filtro === "farmacia"){
       filtroaplicado = document.getElementById("farmacia") as HTMLDivElement;
       checked = document.getElementById("farmacia_checkbox") as HTMLInputElement;
+      if (checked.checked) {filtroaplicado.style.background = "#C8FF79"; this.filtroBusqueda = filtro;}
+      else {filtroaplicado.style.background = "#FAFAFA"; this.filtroBusqueda = ""}
     }
     else{
       if (filtro === "parafarmacia"){
         filtroaplicado = document.getElementById("parafarmacia") as HTMLDivElement;
         checked = document.getElementById("parafarmacia_checkbox") as HTMLInputElement;
+        if (checked.checked) { filtroaplicado.style.background = "#C8FF79"; this.filtroBusqueda = filtro; }
+        else { filtroaplicado.style.background = "#FAFAFA"; this.filtroBusqueda = ""}
       }
       else{
+        if (filtro === "ortopedia"){
           filtroaplicado = document.getElementById("ortopedia") as HTMLDivElement;
           checked = document.getElementById("ortopedia_checkbox") as HTMLInputElement;
+          if (checked.checked) { filtroaplicado.style.background = "#C8FF79"; this.filtroBusqueda = filtro; }
+          else { filtroaplicado.style.background = "#FAFAFA"; this.filtroBusqueda = ""}
+        } else {
+          const text = document.getElementById("text_search") as HTMLInputElement
+          this.filtroBusqueda = text.value
+        }
       }
-    }
-
-    console.log(checked.checked);
-    if (checked.checked){
-      filtroaplicado.style.background = "#C8FF79";
-  
-    }
-    else{
-      filtroaplicado.style.background = "#FAFAFA";
-      
-    }
-    
-    
+    }  
   }
 
   public cerrarSesion() {

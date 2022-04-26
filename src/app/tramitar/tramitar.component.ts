@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { LoggedService } from '../logged.service';
 import { Medicamento, MedicamentosService } from '../medicamentos.service';
 import { Router } from '@angular/router';
+import  { registerLocaleData } from '@angular/common';
+import localeFr from '@angular/common/locales/fr';
 
 @Component({
   selector: 'app-tramitar',
@@ -17,6 +19,7 @@ export class TramitarComponent implements OnInit {
   constructor(private router: Router, private islogged: LoggedService, private listaMed: MedicamentosService) { }
 
   ngOnInit(): void {
+    registerLocaleData(localeFr, 'fr');
     this.medicamentos = this.listaMed.getMedicamentos();
     this.logged = this.islogged.getVariable();
     this.desc = this.islogged.getDesc();
@@ -48,5 +51,53 @@ export class TramitarComponent implements OnInit {
     this.router.navigate(['']);
   }
 
+  public sumarUnidad(id: number){
+    for (let med of this.medicamentos){
+      if (med.id === id){
+        med.units = med.units + 1;
+        this.listaMed.updateMedicamanto(med);
+      }
+    }
+  }
+
+  public restarUnidad(id: number){
+    for (let med of this.medicamentos){
+      if (med.id === id){
+        if (med.units > 0){
+          med.units = med.units - 1;
+          this.listaMed.updateMedicamanto(med);
+        }
+        if(med.units === 0){
+          med.units = 0;
+          med.bought = false;
+          this.listaMed.updateMedicamanto(med);
+        }
+      }
+    }
+  }
+
+  public FinalizarCompra(){
+
+  }
+
+  public editarTarjeta(){
+
+  }
+
+  public editarEntrega(){
+
+  }
+
+  public closeFC(){
+
+  }
+
+  public closeEdDir(){
+
+  }
+
+  public closeEdTar(){
+
+  }
 
 }

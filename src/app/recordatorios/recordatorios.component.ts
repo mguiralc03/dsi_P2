@@ -13,7 +13,6 @@ import { Router } from '@angular/router';
 })
 export class RecordatoriosComponent implements OnInit {
 
-  selectedEvent: any;
   public logged: any;
   public desc: any;
   selectedColor: string = "#3334F6";
@@ -109,7 +108,7 @@ export class RecordatoriosComponent implements OnInit {
         formatFechaf[2] = "0" + formatFechaf[2]
       }
 
-      let addevent = {title: med.value, editable: true, rrule:{ freq:'daily', dtstart: formatFechai.join("-") + "T" + startHora + ":00", until: formatFechaf.join("-") + "T" + endHora + ":00"}, color: colorToChoose, extendedProps: { dosis: dosis.value }}
+      let addevent = {title: med.value, editable: true, rrule:{ freq:'daily', dtstart: formatFechai.join("-") + "T" + startHora + ":00", until: formatFechaf.join("-") + "T" + endHora + ":00"}, color: colorToChoose, extendedProps: { dosis: dosis.value, hora: startHora }}
       this.EventsList.push(addevent)
       this.EventsList = Object.assign([], this.EventsList)
       this.calendarOptions.events = this.EventsList
@@ -144,6 +143,43 @@ export class RecordatoriosComponent implements OnInit {
     }
   }
 
+  public alertar(info: string){
+    alert(info);
+  }
+
+  public closeShow() {
+    const back = document.getElementById("backblur-event") as HTMLDivElement
+    back.style.display = "none";
+    const addEvent = document.getElementById("show-event") as HTMLDivElement
+    addEvent.style.display = "none";
+    changeScroll(true);
+    const dosis = document.getElementById("event-dosis") as HTMLElement
+    dosis.innerHTML = "La dosis es "
+    const hora = document.getElementById("event-hora") as HTMLElement
+    hora.innerHTML = "Debe tomarlo a la(s) "
+  }
+
+  public closeShowTab(event: KeyboardEvent) {
+    if (event.key === 'Enter') {
+      const back = document.getElementById("backblur-event") as HTMLDivElement
+      back.style.display = "none";
+      const addEvent = document.getElementById("show-event") as HTMLDivElement
+      addEvent.style.display = "none";
+      changeScroll(true);
+    }
+    if (event.keyCode === 32) {
+      const back = document.getElementById("backblur-event") as HTMLDivElement
+      back.style.display = "none";
+      const addEvent = document.getElementById("show-event") as HTMLDivElement
+      addEvent.style.display = "none";
+      changeScroll(true);
+    }
+    const dosis = document.getElementById("event-dosis") as HTMLElement
+    dosis.innerHTML = "La dosis es "
+    const hora = document.getElementById("event-hora") as HTMLElement
+    hora.innerHTML = "Debe tomarlo a la(s) "
+  }
+
   calendarOptions: CalendarOptions = {
     initialView: 'dayGridMonth',
     locale: esLocale,
@@ -171,6 +207,19 @@ export class RecordatoriosComponent implements OnInit {
     selectable: true,
     nowIndicator: true,
     editable: true,
+    eventClick: function (info) {
+      changeScroll(false);
+      const back = document.getElementById("backblur-event") as HTMLDivElement
+      back.style.display = "flex";
+      const addEvent = document.getElementById("show-event") as HTMLDivElement
+      addEvent.style.display = "flex";
+      const title = document.getElementById("event-title") as HTMLElement
+      title.innerHTML = info.event.title
+      const dosis = document.getElementById("event-dosis") as HTMLElement
+      dosis.innerHTML += " " + info.event.extendedProps['dosis']
+      const hora = document.getElementById("event-hora") as HTMLElement
+      hora.innerHTML += " " + info.event.extendedProps['hora']
+    },
     select: function (info) {
       changeScroll(false);
       const back = document.getElementById("backblur") as HTMLDivElement
