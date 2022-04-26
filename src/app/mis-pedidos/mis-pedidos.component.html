@@ -12,6 +12,7 @@
     </nav>
 
     <div id="pedidos">
+        <h2 id="titulo-pedidos">Mis pedidos</h2>
         <div class="pedido" id="1234">
             <div class="bloque1">
                 <h1 class="titulos">Pedido numero: 1234</h1>
@@ -31,7 +32,7 @@
             </div>
             <div class="bloque5">
                 <h2 class="titulos">Total del pedido: 8,12€</h2>
-                <h2 class="follow" id="follow1">Seguir mi pedido</h2>
+                <h2 class="follow" (click)="abrirSeguimiento()" (keydown)="abrirSeguimientoTab($event)" id="follow1">Seguir mi pedido</h2>
             </div>
         </div>
         <div class="pedido" id="5678">
@@ -53,8 +54,27 @@
             </div>
             <div class="bloque5">
                 <h2 class="titulos">Total del pedido: 10,96€</h2>
-                <h2 class="follow" id="follow2">Seguir mi pedido</h2>
+                <h2 class="titulos">Entregado</h2>
             </div>
         </div>
     </div>
+</div>
+
+<div *ngIf="showBack" class="blurback"></div>
+
+<div *ngIf="showSeguimiento" id="seguimiento-popup">
+    <div id="seguimiento-header">
+        <img src="../../assets/images/logo.png" alt="myHealth logo">
+        <span tabIndex="0" class="material-icons-outlined" (click)="closeSeguimiento()" (keydown)="closeSeguimientoTab($event)">highlight_off</span>
+    </div>
+    <form id="seguimiento-body">
+        <div id="titu">
+            <h1>Seguimiento de pedido - 1234</h1>
+        </div>
+        <h2>Barra de progresión:</h2>
+        <div id="progrbar">
+            <mat-progress-bar mode="determinate" value="40" id="progressbar"></mat-progress-bar>
+        </div>
+        <img id="maps" src="../../assets/images/mapa.jpg" alt="maps">
+    </form>
 </div>

@@ -21,13 +21,7 @@ export class HeaderComponent implements OnInit {
 
   constructor(private router: Router, private islogged: LoggedService) { }
 
-  ngOnInit(): void {
-    this.logged = this.islogged.getVariable();
-    if (this.logged){
-      const loggedLinks = document.getElementById("logged-home") as HTMLDivElement;
-      loggedLinks.style.display = "flex";
-    }
-  }
+  ngOnInit(): void {}
 
   getErrorMessageEmailInit(){
     if (this.emailInit.hasError('required')) {

@@ -58,12 +58,23 @@ nav{
     background-color: $myapp-grisOscuro;
 }
 
+.blurback{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9998;
+    backdrop-filter: blur(2px);
+    background-color: rgba(195, 247, 198, 0.332);
+}
+
+
 .contenido{
     display:flex;
     flex-direction: row;
     .carrito{
         width: 80%;
-        height: 100%;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -74,7 +85,6 @@ nav{
         .med-container{
             display: flex;
             flex-direction: column;
-            height: 100%;
             width: 100%;
             .med-bought{
                 display: flex;
@@ -290,8 +300,8 @@ nav{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    height: 350px;
-    width: 400px;
+    height: 400px;
+    width: 350px;
     box-shadow: 0 0 10px black;
     border-radius: 15px;
     background-color: white;
@@ -314,5 +324,46 @@ nav{
             margin-left: 100px;
             margin-top: 5px;
         }
+    }
+    .finalizar-compra{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        h2{
+            margin-top: 20px;
+        }
+        textarea{
+            max-width: 80%;
+            width: 50%;
+            height: 40px;
+            max-height: 170px;
+            background-color: #c7ff799f;
+        }
+        .datos1{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 80%;
+        }
+        button{
+            margin-top: 20px;
+        }
+    }
+}
+
+#editar-direccion{
+    height: 450px;
+    width: 600px;
+    img{
+        margin-left: 220px;
+    }
+}
+
+#editar-tarjeta{
+    .datos2{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 80%;
     }
 }

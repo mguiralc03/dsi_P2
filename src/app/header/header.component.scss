@@ -7,6 +7,7 @@ header{
     justify-content: space-between;
 
     #logo-container{
+        cursor: pointer;
         width: 40%;
         margin: 15px 0px 10px 15px;
     }
@@ -42,7 +43,7 @@ header{
 
 .blurback{
     width: 100vw;
-    height: 100vh;
+    height: 1000vh;
     position: absolute;
     top: 0;
     left: 0;
@@ -138,4 +139,7 @@ header{
         }
     }
 
+}
+@media only screen and (max-width: 768px){
+    
 }

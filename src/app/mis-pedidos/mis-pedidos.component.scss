@@ -31,24 +31,52 @@ nav{
 
   }
 }
+
+.mat-slide-toggle.mat-voz {
+  font-family: $myapp-font;
+  font-size: 14px;
+  line-height: 22px;
+  letter-spacing: 8%;
+  color: white;
+  margin: 10px 15px 10px 0px;
+}
+
+::ng-deep .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
+  background-color: $myapp-verdeBrillante;
+}
+
+::ng-deep .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
+  background-color: $myapp-grisOscuro;
+}
+
+::ng-deep .mat-slide-toggle:not(.mat-checked) .mat-slide-toggle-thumb {
+  background-color: $myapp-salmon;
+}
+
+::ng-deep .mat-slide-toggle:not(.mat-checked) .mat-slide-toggle-bar {
+  background-color: $myapp-grisOscuro;
+}
+
 .pedidos{
-  justify-content: center;
-  text-align: center;
-  box-sizing: border-box;
+  width: 100%;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-sizing: border-box;
+  margin: 20px auto;
 }
 .pedido{
   text-align: center;
   justify-content: center;
-  margin: 1%;
+  margin: 10px auto;
   height: 10%;
   width: 95%;
   border-radius: 20px;
-  background: #C8FF79;
+  background: #c7ff79a2;
   border: 1px solid #000000;
   box-sizing: border-box;
   border-radius: 20px;
-  cursor: pointer;
   display: flex;
 }
 .titulos{
@@ -106,4 +134,67 @@ nav{
   color: orange;
   text-decoration: underline;
   cursor: pointer;
+}
+#titulo-pedidos{
+  width:100%;
+  text-align: center;
+  margin: 20px auto;
+}
+
+#seguimiento-popup{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height:500px;
+  width: 500px;
+  box-shadow: 0 0 10px black;
+  border-radius: 15px;
+  background-color: white;
+  z-index: 9999;
+  padding: 10px;
+  #seguimiento-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 10%;
+    .material-icons-outlined{
+        font-size: 32px;
+    }
+    .material-icons-outlined:hover{
+        cursor: pointer;
+    }
+    img{
+        margin-left: 100px;
+        margin-top: 5px;
+    }
+  }
+}
+#titu{
+  margin-left:100px;
+  margin-top: 20px;
+}
+
+#progressbar{
+  margin-left:70px;
+  width: 70%;
+  height:15px;
+}
+
+#maps{
+  width:100%;
+  margin: 20px auto;
+}
+
+.blurback{
+  width: 100vw;
+  height: 1000vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9998;
+  backdrop-filter: blur(2px);
+  background-color: rgba(195, 247, 198, 0.332);
 }

@@ -2,9 +2,9 @@
 
     <nav>
         <div class="links">
-            <h2 role="link" tabindex="0" routerLink="/">Favoritos</h2>
-            <h2 role="link" tabindex="0" routerLink="/">Mis reacordatorios</h2>
-            <h2 role="link" tabindex="0" routerLink="/">Mis pedidos</h2>
+            <h2 role="link" tabindex="0" routerLink="/favoritos">Favoritos</h2>
+            <h2 role="link" tabindex="0" routerLink="/recordatorios">Mis reacordatorios</h2>
+            <h2 role="link" tabindex="0" routerLink="/mis-pedidos">Mis pedidos</h2>
             <h2 role="link" tabindex="0" (click)="cerrarSesion()">Cerrar Sesion</h2>
         </div>
         <div class="slider">
@@ -55,11 +55,12 @@
     </div>
 </div>
 
+<div *ngIf="showBack" class="blurback"></div>
 
 <div *ngIf="showEdit" id="user_info" class="pop-up">
     <div class="header-popup">
         <img src="../../assets/images/logo.png" alt="myHealth logo">
-        <span tabIndex="0" class="material-icons-outlined" (click)="closeEdit()">highlight_off</span>
+        <span tabIndex="0" class="material-icons-outlined" (click)="closeEdit()" (keydown)="closeEditTab($event)">highlight_off</span>
     </div>
     <form>
         <h2>Editar perfil</h2> 
@@ -81,12 +82,12 @@
                 <mat-label>Dirección</mat-label>
                 <input matInput>
             </mat-form-field>
-        </div>
-        <div class="filaReg">
             <mat-form-field appearance="fill">
                 <mat-label>Portal</mat-label>
                 <input matInput>
             </mat-form-field>
+        </div>
+        <div class="filaReg">
             <mat-form-field appearance="fill">
                 <mat-label>Escalera</mat-label>
                 <input matInput>
@@ -95,6 +96,8 @@
                 <mat-label>Piso</mat-label>
                 <input matInput>
             </mat-form-field>
+        </div>
+        <div class="filaReg">
             <mat-form-field appearance="fill">
                 <mat-label>Letra</mat-label>
                 <input matInput>
@@ -114,8 +117,11 @@
                 <input matInput>
             </mat-form-field>
         </div>
-        <button mat-raised-button color="salmon" (keydown)="closeEditTab($event)" (click)="closeEdit()" type="submit">Guardar</button>
-        <button mat-raised-button color="salmon" (keydown)="closeEditTab($event)" (click)="closeEdit()" type="submit">Cancelar</button>
+ 
+        <div class="filaReg">
+            <button mat-raised-button color="salmon" (keydown)="closeEditTab($event)" (click)="closeEdit()" type="submit">Guardar</button>
+            <button mat-raised-button color="salmon" (keydown)="closeEditTab($event)" (click)="closeEdit()" type="submit">Cancelar</button>
+        </div>
     </form>
 </div>
 
@@ -123,7 +129,7 @@
 <div *ngIf="showCard" id="tarjetas" class="pop-up">
     <div class="header-popup">
         <img src="../../assets/images/logo.png" alt="myHealth logo">
-        <span tabIndex="0" class="material-icons-outlined" (click)="closeCard()">highlight_off</span>
+        <span tabIndex="0" class="material-icons-outlined" (click)="closeCard()" (keydown)="closeCardTab($event)">highlight_off</span>
     </div>
     <form>
         <h2>Añadir tarjeta</h2> 
@@ -149,9 +155,10 @@
         <div class="filaReg">
             <button mat-raised-button color="salmon" (keydown)="closeCardTab($event)" (click)="closeCard()" type="submit">Adjuntar archivo</button>
         </div>
-        <div class="filaReg">
+
+        <div class="filaReg" class="popup-footer">
             <button mat-raised-button color="salmon" (keydown)="closeCardTab($event)" (click)="closeCard()" type="submit">Guardar</button>
-        <button mat-raised-button color="salmon" (keydown)="closeCardTab($event)" (click)="closeCard()" type="submit">Cancelar</button> 
+            <button mat-raised-button color="salmon" (keydown)="closeCardTab($event)" (click)="closeCard()" type="submit">Cancelar</button> 
         </div>
         
     </form>

@@ -143,17 +143,108 @@ nav{
         margin-top: 2%; 
         height: 33%;
     }
+    .material-icons-outlined{
+        font-size: 32px;
+        margin-top:20%;
+    
+    }
 
 }
-.material-icons-outlined{
-    font-size: 32px;
-    margin-top:20%;
+
+.pop-up{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 10px black;
+    border-radius: 15px;
+    background-color: white;
+    z-index: 9999;
+    padding: 10px;
+    .header-popup{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        height: 10%;
+        .material-icons-outlined{
+            font-size: 32px;
+        }
+        .material-icons-outlined:hover{
+            cursor: pointer;
+        }
+        img{
+            height: 30px;
+            width: 160px;
+            margin-left: 100px;
+            margin-top: 5px;
+        }
+    }
+
+
+    form{
+        height: 98%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 20px;
+        h2{
+            margin-bottom: 30px;
+        }
+        .mat-raised-button.mat-salmon{
+            padding-top: 3px;
+            padding-bottom: 3px;
+            margin-top: 5px;
+        }
+
+    }
+}
+
+#user_info{
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    height: 500px;
+    .filaReg{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between; 
+        width: 70%;
+        }
 
 }
 
+#tarjetas{
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    height: 550px;
+    .filaReg{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 70%;
+    }
+    .popup-footer{
+        margin-top: 30px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 70%;
+    }
+}
 
 
-
-
-
+.blurback{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9998;
+    backdrop-filter: blur(2px);
+    background-color: rgba(195, 247, 198, 0.332);
+}
 

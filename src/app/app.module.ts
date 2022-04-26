@@ -16,11 +16,12 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import rrulePlugin from '@fullcalendar/rrule';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { FormsModule } from '@angular/forms'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FormsModule } from '@angular/forms'
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
@@ -70,7 +71,8 @@ FullCalendarModule.registerPlugins([
     NgxMaterialTimepickerModule,
     MatNativeDateModule,
     MatDividerModule,
-    FormsModule
+    FormsModule,
+    MatProgressBarModule
   ],
   providers: [MedicamentosService, LoggedService, { provide: MAT_DATE_LOCALE, useValue: 'es'}],
   bootstrap: [AppComponent]

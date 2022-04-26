@@ -215,6 +215,7 @@ input[type=checkbox]:checked{
             width: 90%;
             height: 50%;
             margin-bottom: 10px;
+            cursor: pointer;
             img{
                 width: 100%;
                 height: 100%;
@@ -243,5 +244,85 @@ input[type=checkbox]:checked{
             margin-top: 10px;
 
         }
+    }
+}
+
+.blurback{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    z-index: 20;
+    backdrop-filter: blur(2px);
+    background-color: rgba(195, 247, 198, 0.332);
+}
+
+.pop-up{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 380px;
+    width: 500px;
+    box-shadow: 0 0 10px black;
+    border-radius: 15px;
+    background-color: white;
+    z-index: 21;
+    padding: 10px;
+    .header-popup{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        height: 10%;
+        .material-icons-outlined{
+            font-size: 32px;
+        }
+        .material-icons-outlined:hover{
+            cursor: pointer;
+        }
+        img{
+            height: 30px;
+            width: 160px;
+            margin-left: 100px;
+            margin-top: 5px;
+        }
+    }
+    .info-med{
+        h2{
+            margin-top: 20px;
+            margin-left: 20px;
+        }
+        .imagen-desc{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            .image-med{
+                width: 45%;
+                max-height: 200px;
+                img{
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+            .descripcion-med{
+                width: 45%;
+                max-height: 200px;
+                overflow-y: scroll;
+                border-radius: 10px;
+                background-color: #c7ff799f;
+                padding: 10px;
+                font-size: 20px;
+            }
+        }
+    }
+    .añadir-al-carrito{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin-top: 20px;
     }
 }

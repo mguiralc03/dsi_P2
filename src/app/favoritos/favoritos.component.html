@@ -1,1 +1,31 @@
-<p>favoritos works!</p>
+<div id="favoritos-container">
+    <nav>
+        <div class="links">
+            <h2 role="link" class="active" tabindex="0" routerLink="/favoritos">Favoritos</h2>
+            <h2 role="link" tabindex="0" routerLink="/recordatorios">Mis recordatorios</h2>
+            <h2 role="link" tabindex="0" routerLink="/mis-pedidos">Mis pedidos</h2>
+            <h2 role="link" tabindex="0" (click)="cerrarSesion()">Cerrar Sesion</h2>
+        </div>
+        <div class="slider">
+            <mat-slide-toggle color="voz" id="descripcionVozPed" [checked]=desc (change)="changeDesc()">Descripción por voz</mat-slide-toggle>
+        </div>
+    </nav>
+    <h2 id="titulo-favs">Tus productos favoritos</h2>
+    <div id="lista-favs">
+        <div class="fav-container" *ngFor="let med of listaMedicamentos">
+            <div class="med-fav" *ngIf="med.favorite">
+                <div class="fav-img-container">
+                    <img [src]=med.img_source [alt]=med.title>
+                </div>
+                <div class="med-info">
+                    <h2>{{med.title}}</h2>
+                    <p>{{med.desc_short}}</p>
+                </div>
+                <div class="med-actions">
+                    <button mat-raised-button id="quitar-fav" color="salmon" (click)="quitarFav(med.id)">Quitar de favoritos</button>
+                    <button mat-raised-button id="anadir-carrito" color="salmon" (click)="anadirCarrito(med.id)">Añadir al carrito</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,7 +1,7 @@
 <div id="home-container">
     <nav>
         <div class="links">
-            <h2 role="link" tabindex="0" routerLink="/">Acerca de nostros</h2>
+            <h2 role="link" tabindex="0" routerLink="/">Acerca de nosotros</h2>
             <h2 role="link" tabindex="0" routerLink="/">Preguntas frecuentes</h2>
         </div>
         <div class="links" id="logged-home">
@@ -25,15 +25,15 @@
             </div>
             <div class="chooser_container">
                 <div class="chooser" id="farmacia">
-                    <input (click)="search('farmacia')" type="checkbox" id="farmacia_checkbox"> Farmacia
+                    <input (click)="search('farmacia')" (keydown)="searchKey($event,'farmacia')" type="checkbox" id="farmacia_checkbox"> Farmacia
                 </div>
 
                 <div class="chooser" id="parafarmacia">
-                    <input (click)="search('parafarmacia')" type="checkbox" id="parafarmacia_checkbox">Parafarmacia
+                    <input (click)="search('parafarmacia')" (keydown)="searchKey($event,'parafarmacia')" type="checkbox" id="parafarmacia_checkbox">Parafarmacia
                 </div>
 
                 <div class="chooser" id="ortopedia">
-                    <input (click)="search('ortopedia')" type="checkbox" id="ortopedia_checkbox">Ortopedia
+                    <input (click)="search('ortopedia')" (keydown)="searchKey($event,'ortopedia')" type="checkbox" id="ortopedia_checkbox">Ortopedia
                 </div>
             </div>
         </form>
@@ -48,7 +48,7 @@
         <div class="med-container" *ngFor="let med of medicamentos | searchFilter: filtroBusqueda">
             <div class="med-circle" *ngIf=med.receta></div>
             <div class="med-img-container">
-                <img [src]=med.img_source [alt]=med.title>
+                <img tabindex="0" (click)="abrirPopup(med.title)" [src]=med.img_source [alt]=med.title>
             </div>
             <div class="med-title-container">
                 <h2>{{med.title}}</h2>
@@ -58,11 +58,11 @@
                 <p>{{med.desc_short}}</p>
             </div>
             <div class="med-buttons-container">
-                <button mat-button color="med" (click)="changeFill(med.id, 'shop')">
+                <button mat-button color="med" (click)="changeFill(med.id, 'shop')" (keydown)="changeFillKey($event, med.id, 'shop')">
                     <span class="material-icons" *ngIf="med.bought">shopping_cart</span>
                     <span class="material-icons-outlined" *ngIf="!med.bought">shopping_cart</span>
                 </button>
-                <button mat-button color="med" (click)="changeFill(med.id, 'fav')">
+                <button mat-button color="med" (click)="changeFill(med.id, 'fav')" (keydown)="changeFillKey($event, med.id, 'fav')">
                     <span class="material-icons-outlined" *ngIf=!med.favorite>favorite_border</span>
                     <span class="material-icons-outlined" *ngIf=med.favorite>favorite</span>
                 </button>
@@ -70,3 +70,34 @@
         </div>
     </div>
 </div>
+
+<div *ngIf="showBack" class="blurback">
+    <div *ngIf="showPopup" class="pop-up">
+        <div *ngFor="let med of medicamentos">
+            <div *ngIf="med.title === seleccionado">
+                <div class="header-popup">
+                    <img src="../../assets/images/logo.png" alt="myHealth logo">
+                    <span tabIndex="0" class="material-icons-outlined" (keydown)="closePopupKeyboard($event)"
+                        (click)="closePopup()">highlight_off</span>
+                </div>
+                <div class="info-med">
+                    <h2>{{med.title}} - {{med.price}}</h2>
+                    <div class="imagen-desc">
+                        <div class="image-med">
+                            <img [src]=med.img_source [alt]=med.title>
+                        </div>
+                        <div class="descripcion-med">
+                            <p>{{med.desc_long}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="añadir-al-carrito">
+                    <button mat-raised-button color="salmon" (click)="addCarrito(med.title)" (keydown)="addCarritoKey($event, med.title)"> Añadir al carrito</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

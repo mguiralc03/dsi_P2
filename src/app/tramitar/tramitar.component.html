@@ -28,9 +28,9 @@
                             <div class="unidades">
                                 <p>Unidades: </p>
                                 <div class="med-unidades">
-                                    <button id="menos" (click)="restarUnidad(med.id)">-</button>
+                                    <button id="menos" (click)="restarUnidad(med.id)" (keydown)="restarUnidadTab($event, med.id)">-</button>
                                     <p>{{med.units}}</p>
-                                    <button id="mas" (click)="sumarUnidad(med.id)">+</button>
+                                    <button id="mas" (click)="sumarUnidad(med.id)" (keydown)="sumarUnidadTab($event, med.id)">+</button>
                                 </div>
                             </div>
                             <div class="total">
@@ -46,7 +46,7 @@
             </div>
             <div class = "botones-compra">
                 <button mat-raised-button color="salmon" routerLink="/">Seguir compra</button>
-                <button mat-raised-button color="salmon" (click)="FinalizarCompra()">Finalizar compra</button>
+                <button mat-raised-button color="salmon" (click)="FinalizarCompra()" (keydown)="finalizarCompraTab($event)">Finalizar compra</button>
             </div>
         </div>
         <mat-divider id="vertical-separator" vertical style="height: 50vh"></mat-divider>
@@ -54,8 +54,8 @@
             <div class="direccion-envio">
                 <h2>Dirección de envío:</h2>
                 <div class="labels" id="direccion">
-                    <p>Avenida Peter Parker, <br>
-                        nº5&emsp;esc.3&emsp;6ºC</p>
+                    <p>Calle La Guirao, <br>
+                        nº32&emsp;2ºA</p>
                 </div>
                 <div class="labels">
                     <p>Madrid</p>
@@ -64,7 +64,7 @@
                     <p>Madrid, 28035</p>
                 </div>
                 <div class="editar-button">
-                    <button  mat-raised-button color="salmon" (click)="editarEntrega()">Editar</button>
+                    <button  mat-raised-button color="salmon" (click)="editarEntrega()" (keydown)="editarEntregaTab($event)">Editar</button>
                 </div>
             </div>
             <div class="metodo-pago">
@@ -81,7 +81,7 @@
                     </div>
                 </div>
                 <div class="editar-button">
-                    <button  mat-raised-button color="salmon" (click)="editarTarjeta()">Editar</button>
+                    <button  mat-raised-button color="salmon" (click)="editarTarjeta()" (keydown)="editarTarjetaTab($event)">Editar</button>
                     <p>Si no añade una tarjeta se le cobrará una <br> 
                         vez entregado el paquete. Esto podrá<br>
                         ser en efectivo o con tarjeta.</p>
@@ -91,23 +91,100 @@
     </div>
 </div>
 
-<div class="pop-up" id="finalizarCompra">
+<div *ngIf="showBack" class="blurback"></div>
+
+<div *ngIf="showFinCompra" class="pop-up" id="finalizarCompra">
     <div class="header-popup">
         <img src="../../assets/images/logo.png" alt="myHealth logo">
-        <span tabIndex="0" class="material-icons-outlined" (click)="closeFC()">highlight_off</span>
+        <span tabIndex="0" class="material-icons-outlined" (click)="closeFC()" (keydown)="closeFCTab($event)">highlight_off</span>
+    </div>
+    <div class="finalizar-compra">
+        <h2>Finalizar compra</h2>
+        <textarea placeholder="Comentarios acerca de la entrega del pedido"></textarea>
+        <button mat-raised-button color="salmon" routerLink="/mis-pedidos"> Aceptar </button>
     </div>
 </div>
 
-<div class="pop-up" id="editar-direccion">
+<div *ngIf="showEdDir" class="pop-up" id="editar-direccion">
     <div class="header-popup">
         <img src="../../assets/images/logo.png" alt="myHealth logo">
-        <span tabIndex="0" class="material-icons-outlined" (click)="closeEdDir()">highlight_off</span>
+        <span tabIndex="0" class="material-icons-outlined" (click)="closeEdDir()" (keydown)="closeEdDirTab($event)">highlight_off</span>
+    </div>
+    <div class="finalizar-compra">
+        <h2>Editar dirección de envío</h2>
+        <div class="datos1">
+            <mat-form-field appearance="fill">
+                <mat-label>Direccion</mat-label>
+                <input matInput>
+            </mat-form-field>
+            
+            <mat-form-field appearance="fill">
+                <mat-label>Portal</mat-label>
+                <input matInput>
+            </mat-form-field>
+        </div>
+        <div class="datos1">
+            <mat-form-field appearance="fill">
+                <mat-label>Escalera</mat-label>
+                <input matInput>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Piso</mat-label>
+                <input matInput>
+            </mat-form-field>
+
+        </div>
+        <div class="datos1">
+            <mat-form-field appearance="fill">
+                <mat-label>Letra</mat-label>
+                <input matInput>
+            </mat-form-field>
+    
+            <mat-form-field appearance="fill">
+                <mat-label>Provincia</mat-label>
+                <input matInput>
+            </mat-form-field>
+        </div>
+        <div class="datos1">
+            <mat-form-field appearance="fill">
+                <mat-label>Ciudad</mat-label>
+                <input matInput>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Código postal</mat-label>
+                <input matInput>
+            </mat-form-field>
+        </div>
+
+        <button mat-raised-button color="salmon" (click)="closeEdDir()" (keydown)="closeEdDirTab($event)" > Aceptar </button>
     </div>
 </div>
 
-<div class="pop-up" id="editar-tarjeta">
+<div *ngIf="showEdTar" class="pop-up" id="editar-tarjeta">
     <div class="header-popup">
         <img src="../../assets/images/logo.png" alt="myHealth logo">
-        <span tabIndex="0" class="material-icons-outlined" (click)="closeEdTar()">highlight_off</span>
+        <span tabIndex="0" class="material-icons-outlined" (click)="closeEdTar()" (keydown)="closeEdTarTab($event)">highlight_off</span>
+    </div>
+    <div class="finalizar-compra">
+        <h2>Añadir tarjeta</h2>
+        <div class="datos2">
+            <mat-form-field appearance="fill">
+                <mat-label>Número de tarjeta</mat-label>
+                <input matInput>
+            </mat-form-field>
+            
+            <mat-form-field appearance="fill">
+                <mat-label>CVV</mat-label>
+                <input matInput>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Fecha</mat-label>
+                <input matInput>
+            </mat-form-field>
+        </div>
+        <button mat-raised-button color="salmon" (click)="closeEdTar()" (keydown)="closeEdTarTab($event)"> Aceptar </button>
     </div>
 </div>

@@ -38,13 +38,12 @@
         <p id="errorInit">El email o la contraseña no son correctos</p>
         <button mat-raised-button color="salmon" (click)="checkInit($event)" type="submit">Iniciar sesión</button>
         <a (click)="openReg()">¿No tienes cuenta? Regístrate</a>
-    </form>
-       
+    </form> 
 </div>
 <div *ngIf="showReg" id="reg" class="pop-up">
     <div class="header-popup">
         <img src="../../assets/images/logo.png" alt="myHealth logo">
-        <span tabIndex="0" class="material-icons-outlined" (click)="closeReg()">highlight_off</span>
+        <span tabIndex="0" class="material-icons-outlined" (click)="closeReg()" (keydown)="closeRegTab($event)">highlight_off</span>
     </div>
     <form>
         <h2>Regístrate</h2>

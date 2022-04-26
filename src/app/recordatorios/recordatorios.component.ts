@@ -13,7 +13,6 @@ import { Router } from '@angular/router';
 })
 export class RecordatoriosComponent implements OnInit {
 
-  public logged: any;
   public desc: any;
   selectedColor: string = "#3334F6";
   EventsList: EventInput[] = [];
@@ -21,12 +20,7 @@ export class RecordatoriosComponent implements OnInit {
   constructor(private router: Router, private islogged: LoggedService) { }
 
   ngOnInit(): void {
-    this.logged = this.islogged.getVariable();
     this.desc = this.islogged.getDesc();
-    if (this.logged) {
-      const loggedLinks = document.getElementById("logged-home") as HTMLDivElement;
-      loggedLinks.style.display = "flex";
-    }
     if (this.desc){
       const descript = document.getElementById("descripcionVozRec") as HTMLInputElement;
       descript.checked = this.desc;
@@ -254,14 +248,15 @@ export class RecordatoriosComponent implements OnInit {
   };
 
   public cerrarSesion() {
-    const links = document.getElementById("logged-home") as HTMLDivElement;
-    links.style.display = "none";
-    const logged = document.getElementById("logged") as HTMLDivElement;
-    const notLogged = document.getElementById("not-logged") as HTMLDivElement;
-    logged.style.display = "none";
-    notLogged.style.display = "flex";
-    this.islogged.updatedLogged(false);
-    this.router.navigate(['']);
+    let confirmation = confirm("Seguro que quieres cerrar sesión?");
+    if (confirmation) {
+      const logged = document.getElementById("logged") as HTMLDivElement;
+      const notLogged = document.getElementById("not-logged") as HTMLDivElement;
+      logged.style.display = "none";
+      notLogged.style.display = "flex";
+      this.islogged.updatedLogged(false);
+      this.router.navigate(['']);
+    }
   }
 
 }
