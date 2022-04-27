@@ -1,6 +1,6 @@
 <header>
     <div role="button" tabindex="0" id="logo-container" (keydown)="moveTo($event, 'home')" (click)="changePath('home')">
-        <img id="header-logo" src="../../assets/images/logo.png" alt="myHealth logo">
+        <img id="header-logo" src="assets/images/logo.png" alt="myHealth logo">
     </div>
     <div id="not-logged">
         <button mat-raised-button id="iniciar-sesion" color="salmon" (click)="openInit()" >Iniciar sesión</button>
@@ -18,7 +18,7 @@
 
 <div *ngIf="showLogin" id="login" class="pop-up">
     <div class="header-popup">
-        <img src="../../assets/images/logo.png" alt="myHealth logo">
+        <img src="assets/images/logo.png" alt="myHealth logo">
         <span tabIndex="0" class="material-icons-outlined" (keydown)="closeInitTab($event)" (click)="closeInit()">highlight_off</span>
     </div>
     <form>
@@ -42,7 +42,7 @@
 </div>
 <div *ngIf="showReg" id="reg" class="pop-up">
     <div class="header-popup">
-        <img src="../../assets/images/logo.png" alt="myHealth logo">
+        <img src="assets/images/logo.png" alt="myHealth logo">
         <span tabIndex="0" class="material-icons-outlined" (click)="closeReg()" (keydown)="closeRegTab($event)">highlight_off</span>
     </div>
     <form>

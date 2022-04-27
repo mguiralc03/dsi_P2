@@ -76,7 +76,7 @@
         <div *ngFor="let med of medicamentos">
             <div *ngIf="med.title === seleccionado">
                 <div class="header-popup">
-                    <img src="../../assets/images/logo.png" alt="myHealth logo">
+                    <img src="assets/images/logo.png" alt="myHealth logo">
                     <span tabIndex="0" class="material-icons-outlined" (keydown)="closePopupKeyboard($event)"
                         (click)="closePopup()">highlight_off</span>
                 </div>
@@ -91,7 +91,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="añadir-al-carrito">
+                <div class="anadir-al-carrito">
                     <button mat-raised-button color="salmon" (click)="addCarrito(med.title)" (keydown)="addCarritoKey($event, med.title)"> Añadir al carrito</button>
                 </div>
             </div>
